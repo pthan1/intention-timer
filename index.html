@@ -16,22 +16,25 @@
     <section class="left-section">
       <h1>New Activity</h1>
       <form>
-        <input type="radio" name="activity-categories" value="study">
-          <label for="radio">
-            <img src="./assets/study.svg" alt="study button">
-            <br>Study
+        <h2>Select a category:</h2>
+        <div class= "radios">
+          <input type="radio" name="activity-categories" id="study" value="study">
+            <label for="study">
+              <img class="image" src="./assets/study.svg" alt="study button">
+              <br>Study
+            </label>
+          <input type="radio" name="activity-categories" id="meditate" value="meditate">
+            <label for="meditate">
+              <img class="image" src="./assets/meditate.svg" alt="study button">
+              <br>meditate
           </label>
-        <input type="radio" name="activity-categories" value="meditate">
-          <label for="radio">
-            <img src="./assets/meditate.svg" alt="meditate button">
-            <br>Meditate
-          </label>
-        <input type="radio" name="activity-categories" value="exercise">
-          <label for="radio">
-            <img src="./assets/exercise.svg" alt="exercise button">
-            <br>Exercise
-          </label>
-          <button class="activity button">START ACTIVITY</button>
+          <input type="radio" name="activity-categories" id="exercise" value="exercise">
+            <label for="exercise">
+              <img class="image" src="./assets/exercise.svg" alt="study button">
+              <br>exercise
+            </label>
+        </div>
+          <!-- <button class="activity button">START ACTIVITY</button> -->
       </form>
     </section>
     <section class="right-section">
