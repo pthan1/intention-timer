@@ -52,6 +52,37 @@ main {
   margin-left: 25px;
 }
 
+form > input[type="radio"] {
+  position: fixed;
+  width: 0;
+}
+
+[type=radio] ~ img {
+  cursor: pointer;
+}
+
+form > label {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    border: 2px solid #444;
+    border-radius: 4px;
+}
+
+form > label:hover {
+  background-color: #dfd;
+}
+
+form > input[type="radio"]:focus + label {
+    border: 2px dashed #444;
+}
+
+form > input[type="radio"]:checked + label {
+    background-color: #bfb;
+    border-color: #4c4;
+}
+
 button {
   background-color: #cbc9cf
   font-family: "Montserrat", sans-serif;

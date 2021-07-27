@@ -15,13 +15,24 @@
   <main>
     <section class="left-section">
       <h1>New Activity</h1>
-        <form>
-        <label for="activity">What would you like to accomplish during this time?</label>
-        <input type="text" name="activity-form" id="activity" required>
-        <div class="input flex yellow"></div>
-        <div class="input flex yellow"></div>
-        <button class="activity button">START ACTIVITY</button>
-        </form>
+      <form>
+        <input type="radio" name="activity-categories" value="study">
+          <label for="radio">
+            <img src="./assets/study.svg" alt="study button">
+            <br>Study
+          </label>
+        <input type="radio" name="activity-categories" value="meditate">
+          <label for="radio">
+            <img src="./assets/meditate.svg" alt="meditate button">
+            <br>Meditate
+          </label>
+        <input type="radio" name="activity-categories" value="exercise">
+          <label for="radio">
+            <img src="./assets/exercise.svg" alt="exercise button">
+            <br>Exercise
+          </label>
+          <button class="activity button">START ACTIVITY</button>
+      </form>
     </section>
     <section class="right-section">
         <h1>Past Activities</h1>
