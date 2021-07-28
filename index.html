@@ -18,6 +18,7 @@
       <form>
         <h2>Select a category:</h2>
         <div class= "radios">
+          <br>
           <input type="radio" name="activity-categories" id="study" value="study">
             <label for="study">
               <img class="image" src="./assets/study.svg" alt="study button">
@@ -26,15 +27,30 @@
           <input type="radio" name="activity-categories" id="meditate" value="meditate">
             <label for="meditate">
               <img class="image" src="./assets/meditate.svg" alt="study button">
-              <br>meditate
+              <br>Meditate
           </label>
           <input type="radio" name="activity-categories" id="exercise" value="exercise">
             <label for="exercise">
               <img class="image" src="./assets/exercise.svg" alt="study button">
-              <br>exercise
+              <br>Exercise
             </label>
         </div>
-          <!-- <button class="activity button">START ACTIVITY</button> -->
+        <div class="accomplish-input">
+          <h2>What would you like to accomplish during this time?</h2>
+          <input class = "text-field" type='text' size="93">
+        </div>
+        <div class="time-input">
+          <div>
+            <h2>Minutes</h2>
+            <input class="text-field" type='number'>
+          </div>
+          <div>
+            <h2>Seconds</h2>
+            <input class= "text-field" type='number'>
+          </div>
+        </div>
+        <br>
+        <button class="activity button">START ACTIVITY</button>
       </form>
     </section>
     <section class="right-section">
