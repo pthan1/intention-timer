@@ -16,41 +16,44 @@
     <section class="left-section">
       <h1>New Activity</h1>
       <form>
-        <h2>Select a category:</h2>
-        <div class= "radios">
-          <br>
-          <input type="radio" name="activity-categories" id="study" value="study">
-            <label for="study">
+        <div id="form-align">
+          <h2>Select a category:</h2>
+          <div class= "radios">
+            <div class="activity-selection">
+              <input type="radio" name="activity-categories" id="study" value="study">
+              <label for="study"></label>
               <img class="image" src="./assets/study.svg" alt="study button">
-              <br>Study
-            </label>
-          <input type="radio" name="activity-categories" id="meditate" value="meditate">
-            <label for="meditate">
+              <p>Study</p>
+            </div>
+            <div class="activity-selection">
+              <input type="radio" name="activity-categories" id="meditate" value="meditate">
+              <label for="meditate"></label>
               <img class="image" src="./assets/meditate.svg" alt="study button">
-              <br>Meditate
-          </label>
-          <input type="radio" name="activity-categories" id="exercise" value="exercise">
-            <label for="exercise">
+              <p>Meditate</p>
+            </div>
+            <div class="activity-selection">
+              <input type="radio" name="activity-categories" id="exercise" value="exercise">
+              <label for="exercise"></label>
               <img class="image" src="./assets/exercise.svg" alt="study button">
-              <br>Exercise
-            </label>
-        </div>
-        <div class="accomplish-input">
-          <h2>What would you like to accomplish during this time?</h2>
-          <input class = "text-field" type='text' size="93">
-        </div>
-        <div class="time-input">
-          <div>
-            <h2>Minutes</h2>
-            <input class="text-field" type='number'>
+              <p>Exercise</p>
+            </div>
           </div>
-          <div>
-            <h2>Seconds</h2>
-            <input class= "text-field" type='number'>
+          <div class="accomplish-input">
+            <h2>What would you like to accomplish during this time?</h2>
+            <input class = "text-field-long" type='text' size="93">
           </div>
+          <div class="time-input">
+            <div class="time-input-sections">
+              <h2>Minutes</h2>
+              <input class="text-field" type='number' size="50">
+            </div>
+            <div class="time-input-sections">
+              <h2>Seconds</h2>
+              <input class= "text-field" type='number' size="50">
+            </div>
+          </div>
+          <button class="activity-button">START ACTIVITY</button>
         </div>
-        <br>
-        <button class="activity button">START ACTIVITY</button>
       </form>
     </section>
     <section class="right-section">

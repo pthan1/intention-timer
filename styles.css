@@ -1,3 +1,5 @@
+*{font-family: "Montserrat", sans-serif;}
+
 body {
   margin: 0;
   background-color: #2b2733;
@@ -14,7 +16,6 @@ nav {
   background-color: #46424d;
   height: 70px;
   color: #cbc9cf;
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 25px;
 }
@@ -31,78 +32,67 @@ main {
 }
 
 .left-section h1 {
-  font-family: "Montserrat", sans-serif;
   font-size: 24px;
   color: #cbc9cf;
   font-weight: 300;
-  /* margin-left: 25px; */
 }
 
-.left-section form {
+form {
   display: flex;
-  justify-content: space-between;
-  /* margin-left: 25px; */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   flex-wrap: wrap;
   height: 80vh;
-  width: 45vw;
+  width: 62vw;
   background-color: #46424d;
   border-radius: 5px;
   box-shadow: 10px 5px 5px #26222D;
-  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: #FFF;
   font-weight: 300;
-  padding: 5vh 5vw;
 }
 
-form > h2{
-  position: relative;
-  float: left;
-  flex-direction: row;
-  padding: 20px ;
-  margin-left: 75px;
-  height: 25px;
-  width: 840px;
-  overflow: visible;
+#form-align{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-evenly;
+  align-items:stretch;
+  width: 90%;
+  height: 90%;
 }
 
 .radios{
   display: flex;
-  height: 110px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 15%;
 }
 
 
-.radios > input[type="radio"] {
+.activity-selection > input[type="radio"] {
   position: fixed;
   width: 0;
 }
 
-/* [type=radio]+img {
-  cursor: pointer;
-  height: 25px;
-} */
-
-.radios > label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 10px 20px;
-    margin: 0 50px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    border: 2px solid #444;
-    border-radius: 4px;
-    border: 1px solid rgb(255, 255, 255);
-    height: 60px;
-    width: 140px;
-
+.activity-selection{
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 2%;
+  width: 27%;
+  height: 100%;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid;
+  border-radius: 4px;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .image{
-  height: 35px;
-  width: auto;
-  margin-bottom: -20px;
+  width: 17%;
 }
 
 .radios > label:hover {
@@ -118,22 +108,37 @@ form > input[type="radio"]:checked + label {
     border-color: #4c4;
 }
 
-.text-field{
+.text-field-long{
+  height: 30%;
+  width: 100%;
   background-color: transparent;
   border: transparent;
   border-bottom: 1px solid #FFF;
   color: rgb(255, 255, 255);
-  font-family: "Montserrat", sans-serif;
+}
+
+.text-field{
+  height: 30%;
+  width: 100%;
+  display: inline-block;
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 1px solid #FFF;
+  color: rgb(255, 255, 255);
 }
 
 .time-input{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
 }
 
-.accomplish-input{
+.time-input-sections{
+  width: 43%;
+}
 
+.accomplish-input{
+  width: 100%;
 }
 
 .accomplish-input > input[type="text"]{
@@ -141,20 +146,17 @@ form > input[type="radio"]:checked + label {
   border: transparent;
   border-bottom: 1px solid #FFF;
   color: rgb(255, 255, 255);
-  font-family: "Montserrat", sans-serif;
 }
 
-button {
+.activity-button {
+  align-self: flex-end;
   background-color: #cbc9cf;
-  font-family: "Montserrat", sans-serif;
   color: #2b2733;
   border-radius: 3px;
   border: 0px;
   box-shadow: none;
   width: 190px;
   height: 30px;
-  margin-left: 440px;
-  flex-direction: row;
 }
 
 .right-section {
@@ -164,7 +166,6 @@ button {
 }
 
 .right-section h1 {
-  font-family: "Montserrat", sans-serif;
   font-size: 24px;
   color: #cbc9cf;
   font-weight: 300;
@@ -172,7 +173,6 @@ button {
 }
 
 .right-section h2 {
-  font-family: "Montserrat", sans-serif;
   font-size: 15px;
   text-align: center;
   color: #cbc9cf;
