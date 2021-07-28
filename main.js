@@ -9,7 +9,9 @@ class Activity{
     }
 
     countdown(){
-
+        //we need to get the total time in miliseconds of this.minutes and this.seconds together
+        var countdownTimeMS = this.minutes
+        var stopTime = 
     }
     markComplete(){
 
