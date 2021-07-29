@@ -62,6 +62,16 @@ form {
   height: 90%;
 }
 
+[type="radio"] {
+  opacity: 0;
+  position: absolute;
+}
+
+[type="radio"] + img + label {
+  cursor: pointer;
+  height: 25px;
+}
+
 .radios{
   display: flex;
   justify-content: space-between;
@@ -69,12 +79,6 @@ form {
   flex-direction: row;
   width: 100%;
   height: 15%;
-}
-
-
-.activity-selection > input[type="radio"] {
-  position: fixed;
-  width: 0;
 }
 
 .activity-selection{
@@ -91,21 +95,21 @@ form {
   border: 1px solid rgb(255, 255, 255);
 }
 
-.image{
-  width: 17%;
+.activity-selection > label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.radios > label:hover {
-  background-color: #B3FD78;
+  [type="radio"]:checked + img + label {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.radios > input[type="radio"]:focus + label {
-    border: 2px dashed #444;
-}
-
-form > input[type="radio"]:checked + label {
-    background-color: #bfb;
-    border-color: #4c4;
+.image {
+  width: 15%;
 }
 
 .text-field-long{
