@@ -1,3 +1,5 @@
+*{font-family: "Montserrat", sans-serif;}
+
 body {
   margin: 0;
   background-color: #2b2733;
@@ -14,7 +16,6 @@ nav {
   background-color: #46424d;
   height: 70px;
   color: #cbc9cf;
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 25px;
 }
@@ -31,35 +32,134 @@ main {
 }
 
 .left-section h1 {
-  font-family: "Montserrat", sans-serif;
   font-size: 24px;
   color: #cbc9cf;
   font-weight: 300;
-  margin-left: 25px;
 }
 
-.left-section form {
-  margin-left: 25px;
-  height: 500px;
-  width: 840px;
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 80vh;
+  width: 62vw;
   background-color: #46424d;
   border-radius: 5px;
   box-shadow: 10px 5px 5px #26222D;
-  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: #FFF;
   font-weight: 300;
-  margin-left: 25px;
 }
 
-button {
-  background-color: #cbc9cf
-  font-family: "Montserrat", sans-serif;
+#form-align{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-evenly;
+  align-items:stretch;
+  width: 90%;
+  height: 90%;
+}
+
+[type="radio"] {
+  opacity: 0;
+  position: absolute;
+}
+
+[type="radio"] + img + label {
+  cursor: pointer;
+  height: 25px;
+}
+
+.radios{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 15%;
+}
+
+.activity-selection{
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 2%;
+  width: 27%;
+  height: 100%;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid;
+  border-radius: 4px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.activity-selection > label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+  [type="radio"]:checked + img + label {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image {
+  width: 15%;
+}
+
+.text-field-long{
+  height: 30%;
+  width: 100%;
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 1px solid #FFF;
+  color: rgb(255, 255, 255);
+}
+
+.text-field{
+  height: 30%;
+  width: 100%;
+  display: inline-block;
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 1px solid #FFF;
+  color: rgb(255, 255, 255);
+}
+
+.time-input{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.time-input-sections{
+  width: 43%;
+}
+
+.accomplish-input{
+  width: 100%;
+}
+
+.accomplish-input > input[type="text"]{
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 1px solid #FFF;
+  color: rgb(255, 255, 255);
+}
+
+.activity-button {
+  align-self: flex-end;
+  background-color: #cbc9cf;
   color: #2b2733;
   border-radius: 3px;
   border: 0px;
   box-shadow: none;
-  width: 150px;
+  width: 190px;
   height: 30px;
 }
 
@@ -70,7 +170,6 @@ button {
 }
 
 .right-section h1 {
-  font-family: "Montserrat", sans-serif;
   font-size: 24px;
   color: #cbc9cf;
   font-weight: 300;
@@ -78,7 +177,6 @@ button {
 }
 
 .right-section h2 {
-  font-family: "Montserrat", sans-serif;
   font-size: 15px;
   text-align: center;
   color: #cbc9cf;

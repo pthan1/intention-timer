@@ -15,13 +15,49 @@
   <main>
     <section class="left-section">
       <h1>New Activity</h1>
-        <form>
-        <label for="activity">What would you like to accomplish during this time?</label>
-        <input type="text" name="activity-form" id="activity" required>
-        <div class="input flex yellow"></div>
-        <div class="input flex yellow"></div>
-        <button class="activity button">START ACTIVITY</button>
-        </form>
+      <form>
+        <div id="form-align">
+          <h2>Select a category:</h2>
+          <div class= "radios">
+            <div class="activity-selection">
+              <label for="study">
+              <input type="radio" name="activity-categories" id="study" value="study">
+              <img class="image" src="./assets/study.svg" alt="study button">
+              <p>Study</p>
+              </label>
+            </div>
+            <div class="activity-selection">
+              <label for="meditate">
+              <input type="radio" name="activity-categories" id="meditate" value="meditate">
+              <img class="image" src="./assets/meditate.svg" alt="study button">
+              <p>Meditate</p>
+              </label>
+            </div>
+            <div class="activity-selection">
+              <label for="exercise">
+              <input type="radio" name="activity-categories" id="exercise" value="exercise">
+              <img class="image" src="./assets/exercise.svg" alt="study button">
+              <p>Exercise</p>
+              </label>
+            </div>
+          </div>
+          <div class="accomplish-input">
+            <h2>What would you like to accomplish during this time?</h2>
+            <input class = "text-field-long" type='text' size="93">
+          </div>
+          <div class="time-input">
+            <div class="time-input-sections">
+              <h2>Minutes</h2>
+              <input class="text-field" type='number' size="50">
+            </div>
+            <div class="time-input-sections">
+              <h2>Seconds</h2>
+              <input class= "text-field" type='number' size="50">
+            </div>
+          </div>
+          <button class="activity-button">START ACTIVITY</button>
+        </div>
+      </form>
     </section>
     <section class="right-section">
         <h1>Past Activities</h1>
