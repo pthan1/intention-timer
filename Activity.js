@@ -21,7 +21,7 @@ class Activity{
         var self = this;
         var interval = setInterval(function(){
             console.log(minutes+" " + seconds);
-            // document.querySelector("#timer").innerHTML = minute + ":" + seconds;
+            // document.querySelector("#timer").innerHTML = minutes + ":" + seconds;
             seconds--;
             if (seconds == 0){
                 minutes--;
@@ -38,7 +38,7 @@ class Activity{
 
     }
     markComplete(){
-        
+
         console.log("timer complete")
     }
     saveToStorage(){
