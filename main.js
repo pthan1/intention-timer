@@ -7,7 +7,6 @@ var categoryName = document.querySelector(".category-name");
 
 submitForm.addEventListener("click", submitActivity);
 
-
 function submitActivity(event) {
   event.preventDefault();
   formView.classList.add("hidden");
@@ -19,5 +18,4 @@ function submitActivity(event) {
     categoryName.innerText = "Meditate";
   } if (categoryChoice.value === "exercise")
     categoryName.innerText = "Exercise";
-
 }
