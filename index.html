@@ -17,7 +17,7 @@
       <h1 id="left-section-header">New Activity</h1>
 
       <!-- Hide this 'formview' with classlist.add 'hidden'  on start activity button event click-->
-      <span id="formView">
+      <span class = "hidden" id="formView">
         <form>
           <div class="form-align">
             <h2>Select a category:</h2>
@@ -49,7 +49,7 @@
               <h2>What would you like to accomplish during this time?</h2>
               <input class = "text-field-long" type='text' size="93">
             </div>
-            <p class="error-message">⚠ Please select a category ⚠</p>
+            <p class="error-message">⚠ Please enter a description of the activity ⚠</p>
             <div class="time-input">
               <div class="time-input-sections">
                 <h2>Minutes</h2>
@@ -60,21 +60,21 @@
                 <input class= "text-field" type='number' size="50">
               </div>
             </div>
-            <p class="error-message">⚠ Please select a category ⚠</p>
+            <p class="error-message">⚠ Please enter a time for the countdown ⚠</p>
             <button class="activity-button">START ACTIVITY</button>
           </div>
         </form>
       </span>
 
       <!-- show this 'timerView' with classlist.remove 'hidden' on start activity button event click-->
-      <span class="hidden" id="timerView">
+      <span class="" id="timerView">
         <div class="timer-view">
           <!-- Update activityType.innerText to activity category -->
           <p id="activityType">Activity Type</p>
           <!-- input parsed countdown time to countdownTimerText on each interval -->
           <span id="countdownTimerText">05:00</span>
           <!-- classlist.add on this with the below VV format based on category selected-->
-          <div id="startTimerButton" class="exercise-start-button">START</div>
+          <div id="startTimerButton" class="meditate-start-button">START</div>
           </div>
         </div>
       </span>
