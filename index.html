@@ -15,7 +15,9 @@
   <main>
     <section class="left-section">
       <h1 id="left-section-header">New Activity</h1>
-      <span class="hidden" id="formView">
+
+      <!-- Hide this 'formview' with classlist.add 'hidden'  on start activity button event click-->
+      <span id="formView">
         <form>
           <div class="form-align">
             <h2>Select a category:</h2>
@@ -63,11 +65,16 @@
           </div>
         </form>
       </span>
-      <span class="visible" id="timerView">
+
+      <!-- show this 'timerView' with classlist.remove 'hidden' on start activity button event click-->
+      <span class="hidden" id="timerView">
         <div class="timer-view">
-          <p>Activity Type</p>
-          <span>05:00</span>
-          <div class="exercise-start-button">START</div>
+          <!-- Update activityType.innerText to activity category -->
+          <p id="activityType">Activity Type</p>
+          <!-- input parsed countdown time to countdownTimerText on each interval -->
+          <span id="countdownTimerText">05:00</span>
+          <!-- classlist.add on this with the below VV format based on category selected-->
+          <div id="startTimerButton" class="exercise-start-button">START</div>
           </div>
         </div>
       </span>
