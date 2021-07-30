@@ -14,50 +14,64 @@
   <nav>INTENTION TIMER</nav>
   <main>
     <section class="left-section">
-      <h1>New Activity</h1>
-      <form>
-        <div class="form-align">
-          <h2>Select a category:</h2>
-          <div class= "radios">
-            <div class="activity-selection">
-              <label for="study">
-              <input type="radio" name="activity-categories" id="study" value="study">
-              <img class="image" src="./assets/study.svg" alt="study button">
-              <p>Study</p>
-              </label>
+      <h1 id="left-section-header">New Activity</h1>
+      <span class="hidden" id="formView">
+        <form>
+          <div class="form-align">
+            <h2>Select a category:</h2>
+            <div class= "radios">
+              <div class="activity-selection">
+                <label for="study">
+                  <input type="radio" name="activity-categories" id="study" value="study">
+                  <img class="image" src="./assets/study.svg" alt="study button">
+                  <p>Study</p>
+                </label>
+              </div>
+              <div class="activity-selection">
+                <label for="meditate">
+                  <input type="radio" name="activity-categories" id="meditate" value="meditate">
+                  <img class="image" src="./assets/meditate.svg" alt="study button">
+                  <p>Meditate</p>
+                </label>
+              </div>
+              <div class="activity-selection">
+                <label for="exercise">
+                  <input type="radio" name="activity-categories" id="exercise" value="exercise">
+                  <img class="image" src="./assets/exercise.svg" alt="study button">
+                  <p>Exercise</p>
+                </label>
+              </div>
             </div>
-            <div class="activity-selection">
-              <label for="meditate">
-              <input type="radio" name="activity-categories" id="meditate" value="meditate">
-              <img class="image" src="./assets/meditate.svg" alt="study button">
-              <p>Meditate</p>
-              </label>
+            <p class="error-message">⚠ Please select a category ⚠</p>
+            <div class="accomplish-input">
+              <h2>What would you like to accomplish during this time?</h2>
+              <input class = "text-field-long" type='text' size="93">
             </div>
-            <div class="activity-selection">
-              <label for="exercise">
-              <input type="radio" name="activity-categories" id="exercise" value="exercise">
-              <img class="image" src="./assets/exercise.svg" alt="study button">
-              <p>Exercise</p>
-              </label>
+            <p class="error-message">⚠ Please select a category ⚠</p>
+            <div class="time-input">
+              <div class="time-input-sections">
+                <h2>Minutes</h2>
+                <input class="text-field" type='number' size="50">
+              </div>
+              <div class="time-input-sections">
+                <h2>Seconds</h2>
+                <input class= "text-field" type='number' size="50">
+              </div>
             </div>
+            <p class="error-message">⚠ Please select a category ⚠</p>
+            <button class="activity-button">START ACTIVITY</button>
           </div>
-          <div class="accomplish-input">
-            <h2>What would you like to accomplish during this time?</h2>
-            <input class = "text-field-long" type='text' size="93">
+        </form>
+      </span>
+      <span class="visible" id="timerView">
+        <div class="timer-view">
+          <p>Activity Type</p>
+          <span>05:00</span>
+          <div class="exercise-start-button">START</div>
           </div>
-          <div class="time-input">
-            <div class="time-input-sections">
-              <h2>Minutes</h2>
-              <input class="text-field" type='number' size="50">
-            </div>
-            <div class="time-input-sections">
-              <h2>Seconds</h2>
-              <input class= "text-field" type='number' size="50">
-            </div>
-          </div>
-          <button class="activity-button">START ACTIVITY</button>
         </div>
-      </form>
+      </span>
+
     </section>
     <section class="right-section">
         <h1>Past Activities</h1>

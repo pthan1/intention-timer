@@ -29,6 +29,7 @@ main {
 .left-section {
   height: 100vh;
   width: 900px;
+  margin-left: 25px;
 }
 
 .left-section h1 {
@@ -37,14 +38,14 @@ main {
   font-weight: 300;
 }
 
-form {
+form , .timer-view {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
   height: 80vh;
-  width: 62vw;
+  width: 60vw;
   background-color: #46424d;
   border-radius: 5px;
   box-shadow: 10px 5px 5px #26222D;
@@ -163,6 +164,11 @@ form {
   height: 30px;
 }
 
+.error-message {
+  color: #EFB7EC;
+  text-align: left;
+}
+
 .right-section {
   border-left: 3px solid #46424d;
   height: 100vh;
@@ -184,3 +190,52 @@ form {
   margin-left: 60px;
   margin-right: 60px;
 }
+
+.timer-view p{
+  position: relative;
+  font-size: 26px;
+  top: -10%;
+
+}
+
+.timer-view span{
+  position: relative;
+  font-size: 78px;
+  font-weight: 800;
+  top: -15%;
+}
+
+.timer-view div{
+  position: relative;
+  cursor: pointer;
+  font-size: 32px;
+  padding: 120px 90px;
+  border-radius:300px;
+}
+
+.study-start-button{
+  border: 3px solid #B3FD78;
+  color: #B3FD78;
+}
+.study-start-button:hover{
+  padding: 119px 89px;
+  background-color: rgba(180, 253, 120, 0.25);
+}
+.meditate-start-button {
+  border: 3px solid #C278FD;
+  color:#C278FD;
+}
+.meditate-start-button:hover{
+  padding: 119px 89px;
+  background-color: rgba(193, 120, 253, 0.25);
+}
+.exercise-start-button{
+  border: 3px solid #FD8078;
+  color: #FD8078;
+}
+.exercise-start-button:hover{
+  padding: 119px 89px;
+  background-color: rgba(253, 129, 120, 0.25);
+}
+
+
