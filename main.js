@@ -4,18 +4,25 @@ var timerView = document.querySelector(".timer-container");
 var activityInput = document.querySelector(".text-field-long");
 var timeInput = document.querySelector(".time-inputs-sections")
 var categoryName = document.querySelector(".category-name");
+var leftSectionHeader = document.querySelector("#left-section-header")
 
 submitForm.addEventListener("click", submitActivity);
 
+function switchLeftDisplay(){
+   timerView.classList.toggle("hidden");
+   formView.classList.toggle("hidden");
+}
+
 function submitActivity(event) {
   event.preventDefault();
-  formView.classList.add("hidden");
-  timerView.classList.remove("hidden");
+  switchLeftDisplay();
+  leftSectionHeader.innerText = "Current Activity";
   var categoryChoice = document.querySelector('input[name="activity_categories"]:checked');
   if (categoryChoice.value === "study") {
     categoryName.innerText = "Study";
   } if (categoryChoice.value === "meditate") {
     categoryName.innerText = "Meditate";
-  } if (categoryChoice.value === "exercise")
+  } if (categoryChoice.value === "exercise") {
     categoryName.innerText = "Exercise";
+  }
 }
