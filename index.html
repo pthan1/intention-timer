@@ -53,11 +53,11 @@
             <div class="time-input">
               <div class="time-input-sections">
                 <h2>Minutes</h2>
-                <input class="text-field minutes" type='number' size="50">
+                <input class="text-field minutes" type='number' size="50" onkeypress="return onlyNumberKey(event)">
               </div>
               <div class="time-input-sections">
                 <h2>Seconds</h2>
-                <input class="text-field seconds" type='number' size="50">
+                <input class="text-field seconds" type='number' size="50" onkeypress="return onlyNumberKey(event)">
               </div>
             </div>
             <p class="error-message">⚠ Please enter a time for the countdown ⚠</p>
