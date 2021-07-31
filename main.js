@@ -7,6 +7,7 @@ var categoryName = document.querySelector("#activityType");
 var leftSectionHeader = document.querySelector("#left-section-header");
 var minutesInput = document.querySelector(".minutes");
 var secondsInput = document.querySelector(".seconds");
+var activityCards = [];
 
 submitForm.addEventListener("click", submitActivity);
 
@@ -18,12 +19,13 @@ function switchLeftDisplay(){
 function submitActivity(event) {
   event.preventDefault();
   switchLeftDisplay();
-  
+
   var categoryChoice = document.querySelector('input[name="activity_categories"]:checked');
+  var newCard = new Activity(categoryChoice.value.category, categoryChoice.description, minutesInput.value, secondsInput.value);  
 
   leftSectionHeader.innerText = "Current Activity";
   categoryName.innerText = activityInput.value;  
-
+  activityCards.push(newCard);
   // if (categoryChoice.value === "study") {
   //   categoryName.innerText = "Study";
   // } if (categoryChoice.value === "meditate") {
