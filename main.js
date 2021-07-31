@@ -21,7 +21,7 @@ function submitActivity(event) {
   switchLeftDisplay();
 
   var categoryChoice = document.querySelector('input[name="activity_categories"]:checked');
-  var newCard = new Activity(categoryChoice.value.category, categoryChoice.description, minutesInput.value, secondsInput.value);  
+  var newCard = new Activity(categoryChoice.value, activityInput.value, minutesInput.value, secondsInput.value);  
 
   leftSectionHeader.innerText = "Current Activity";
   categoryName.innerText = activityInput.value;  
