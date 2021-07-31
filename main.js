@@ -3,8 +3,10 @@ var formView = document.querySelector("#formView");
 var timerView = document.querySelector("#timerView");
 var activityInput = document.querySelector(".text-field-long");
 var timeInput = document.querySelector(".time-inputs-sections")
-var categoryName = document.querySelector(".category-name");
-var leftSectionHeader = document.querySelector("#left-section-header")
+var categoryName = document.querySelector("#activityType");
+var leftSectionHeader = document.querySelector("#left-section-header");
+var minutesInput = document.querySelector(".minutes");
+var secondsInput = document.querySelector(".seconds");
 
 submitForm.addEventListener("click", submitActivity);
 
@@ -16,13 +18,17 @@ function switchLeftDisplay(){
 function submitActivity(event) {
   event.preventDefault();
   switchLeftDisplay();
-  leftSectionHeader.innerText = "Current Activity";
+  
   var categoryChoice = document.querySelector('input[name="activity_categories"]:checked');
-  if (categoryChoice.value === "study") {
-    categoryName.innerText = "Study";
-  } if (categoryChoice.value === "meditate") {
-    categoryName.innerText = "Meditate";
-  } if (categoryChoice.value === "exercise") {
-    categoryName.innerText = "Exercise";
-  }
+
+  leftSectionHeader.innerText = "Current Activity";
+  categoryName.innerText = activityInput.value;  
+
+  // if (categoryChoice.value === "study") {
+  //   categoryName.innerText = "Study";
+  // } if (categoryChoice.value === "meditate") {
+  //   categoryName.innerText = "Meditate";
+  // } if (categoryChoice.value === "exercise") {
+  //   categoryName.innerText = "Exercise";
+  // }
 }
