@@ -61,7 +61,7 @@ function validate(event) {
     descriptionErrMsg.classList.remove('hidden');
   }
 
-  if (minutesInput.value === "" || secondsInput.value === "") {
+  if (minutesInput.value === "" && secondsInput.value === "") {
     flag = false;
     timeErrMsg.classList.remove('hidden');
   }
