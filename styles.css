@@ -206,7 +206,8 @@ form , .timer-view {
   top: -15%;
 }
 
-.timer-view div{
+.timer-view button{
+  background-color: inherit;
   position: relative;
   cursor: pointer;
   font-size: 32px;
@@ -238,5 +239,3 @@ form , .timer-view {
   padding: 119px 89px;
   background-color: rgba(253, 129, 120, 0.25);
 }
-
-
