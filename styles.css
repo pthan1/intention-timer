@@ -206,7 +206,8 @@ form , .timer-view {
   top: -15%;
 }
 
-.timer-view div{
+.timer-view button{
+  background-color: inherit;
   position: relative;
   cursor: pointer;
   font-size: 32px;
@@ -222,11 +223,11 @@ form , .timer-view {
   padding: 119px 89px;
   background-color: rgba(180, 253, 120, 0.25);
 }
-.meditate-start-button {
+.start-button {
   border: 3px solid #C278FD;
   color:#C278FD;
 }
-.meditate-start-button:hover{
+.start-button:hover{
   padding: 119px 89px;
   background-color: rgba(193, 120, 253, 0.25);
 }
@@ -238,5 +239,3 @@ form , .timer-view {
   padding: 119px 89px;
   background-color: rgba(253, 129, 120, 0.25);
 }
-
-
