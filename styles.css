@@ -165,6 +165,7 @@ form , .timer-view {
 }
 
 .error-message {
+  display: hidden;
   color: #EFB7EC;
   text-align: left;
 }

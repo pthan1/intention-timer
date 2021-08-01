@@ -17,51 +17,52 @@
       <h1 id="left-section-header">New Activity</h1>
 
       <!-- Hide this 'formview' with classlist.add 'hidden'  on start activity button event click-->
-      <span class = "" id="formView">
-        <form>
+      <span class ="" id="formView">
+        <form name="activity_form" onSubmit="return validate(event);" /> 
           <div class="form-align">
             <h2>Select a category:</h2>
-            <div class= "radios">
-              <div class="activity-selection">
+            <div class="radios">
+              <div id="studyRadio" class="activity-selection">
                 <label for="study">
-                  <input type="radio" name="activity-categories" id="study" value="study">
+                  <input type="radio" name="activity_categories" id="study" value="study" >
                   <img class="image" src="./assets/study.svg" alt="study button">
                   <p>Study</p>
                 </label>
               </div>
               <div class="activity-selection">
                 <label for="meditate">
-                  <input type="radio" name="activity-categories" id="meditate" value="meditate">
+                  <input type="radio" name="activity_categories" id="meditate" value="meditate">
                   <img class="image" src="./assets/meditate.svg" alt="study button">
                   <p>Meditate</p>
                 </label>
               </div>
               <div class="activity-selection">
                 <label for="exercise">
-                  <input type="radio" name="activity-categories" id="exercise" value="exercise">
+                  <input type="radio" name="activity_categories" id="exercise" value="exercise">
                   <img class="image" src="./assets/exercise.svg" alt="study button">
                   <p>Exercise</p>
                 </label>
               </div>
             </div>
-            <p class="error-message">⚠ Please select a category ⚠</p>
+            <p class="category-err-msg error-message hidden">⚠ An activity is required.</p>
             <div class="accomplish-input">
               <h2>What would you like to accomplish during this time?</h2>
-              <input class = "text-field-long" type='text' size="93">
+              <input class ="text-field-long" type='text' size="93">
             </div>
-            <p class="error-message">⚠ Please enter a description of the activity ⚠</p>
+            <p class="desc-err-msg error-message hidden">⚠ A description is required.</p>
             <div class="time-input">
               <div class="time-input-sections">
                 <h2>Minutes</h2>
-                <input class="text-field" type='number' size="50">
+                <input class="text-field minutes" type='number' size="50" onkeypress="return onlyNumberKey(event)" />
               </div>
               <div class="time-input-sections">
                 <h2>Seconds</h2>
-                <input class= "text-field" type='number' size="50">
+                <input class="text-field seconds" type='number' size="50" onkeypress="return onlyNumberKey(event)" />
               </div>
             </div>
-            <p class="error-message">⚠ Please enter a time for the countdown ⚠</p>
-            <button class="activity-button">START ACTIVITY</button>
+            <p class="time-err-msg error-message hidden">⚠ A duration is required.</p>
+            <input type="submit" class="activity-button" value="START ACTIVITY">
+            <!-- </button> -->
           </div>
         </form>
       </span>
