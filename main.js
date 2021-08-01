@@ -8,7 +8,9 @@ var leftSectionHeader = document.querySelector("#left-section-header");
 var minutesInput = document.querySelector(".minutes");
 var secondsInput = document.querySelector(".seconds");
 var activityCards = [];
+var radios = document.querySelector('.radios');
 
+radios.addEventListener('click', updateCategorySelection);
 submitForm.addEventListener("click", submitActivity);
 
 function switchLeftDisplay(){
@@ -42,4 +44,23 @@ function onlyNumberKey(evt) {
   if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
       return false;
   return true;
+}
+
+
+function updateCategorySelection(){
+    var selectedCategory = document.querySelector('input[name="activity_categories"]:checked');
+    document.querySelector('#studyRadio').classList.remove("studyChecked")
+    document.querySelector('#meditateRadio').classList.remove("meditateChecked")
+    document.querySelector('#exerciseRadio').classList.remove("exerciseChecked")
+    if (selectedCategory.value === "study"){
+        document.querySelector('#studyRadio').classList.add("studyChecked")
+    }
+    else if (selectedCategory.value === "meditate"){
+        document.querySelector('#meditateRadio').classList.add("meditateChecked")
+    }
+    else if (selectedCategory.value === "exercise"){
+        document.querySelector('#exerciseRadio').classList.add("exerciseChecked")
+
+    }
+
 }

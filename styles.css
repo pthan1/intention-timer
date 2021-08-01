@@ -54,6 +54,10 @@ form , .timer-view {
   font-weight: 300;
 }
 
+
+
+
+/* ======== RADIOS */
 [type="radio"] {
   opacity: 0;
   position: absolute;
@@ -87,6 +91,48 @@ form , .timer-view {
   border: 1px solid rgb(255, 255, 255);
 }
 
+.activity-selection:nth-child(1):hover{
+  background-color: #b4fd7862;
+}
+.activity-selection:nth-child(2):hover{
+  background-color: #C278FD62;
+}
+.activity-selection:nth-child(3):hover{
+  background-color: #FD807862;
+}
+
+.studyChecked{
+  background-color: #b4fd782f;
+  color: #B3FD78;
+  border: 1px solid #B3FD78;
+  font-style: bold;
+}
+.studyChecked img{
+  content: url("./assets/study-active.svg")
+}
+
+.meditateChecked{
+  background-color: #C278FD2f;
+  color: #C278FD;
+  border: 1px solid #C278FD;
+  font-style: bold;
+}
+.meditateChecked img{
+  content: url("./assets/meditate-active.svg")
+}
+
+.exerciseChecked{
+  color: #FD8078;
+  background-color: #fd81782f;
+  border: 1px solid #FD8078;
+  font-style: bold;
+}
+.exerciseChecked img{
+  content: url("./assets/exercise-active.svg")
+}
+
+/* ======== END RADIOS */
+
 .form-align{
   display:flex;
   flex-direction:column;
@@ -108,6 +154,8 @@ form , .timer-view {
   flex-direction: column;
   align-items: center;
 }
+
+
 
 .image {
   width: 15%;
