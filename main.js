@@ -8,6 +8,8 @@ var leftSectionHeader = document.querySelector("#left-section-header");
 var minutesInput = document.querySelector(".minutes");
 var secondsInput = document.querySelector(".seconds");
 var categoryErrMsg = document.querySelector('.category-err-msg');
+var descriptionErrMsg = document.querySelector('.desc-err-msg');
+var timeErrMsg = document.querySelector('.time-err-msg');
 var studyBtn = document.getElementById('study');
 var meditateBtn = document.getElementById('meditate');
 var exerciseBtn = document.getElementById('exercise');
@@ -42,24 +44,30 @@ function onlyNumberKey(evt) {
   return true;
 }
 
-
 function validate(event) { 
-  // var allCategoryBtns = document.querySelector('input[name="activity_categories"]');
   event.preventDefault();
   var flag = true;
+  categoryErrMsg.classList.add('hidden');
+  descriptionErrMsg.classList.add('hidden');
+  timeErrMsg.classList.add('hidden');
 
-  if ((!studyBtn.checked) && (!meditateBtn.checked) && (!exerciseBtn.checked)) {   //checking if the form is empty
-    console.log('function');
-    console.log('function');
-    //displaying a message if the form is empty
+  if ((!studyBtn.checked) && (!meditateBtn.checked) && (!exerciseBtn.checked)) {
     flag = false;
     categoryErrMsg.classList.remove('hidden');
-    return;
   }
 
-  // if()
+  if (activityInput.value === "") {
+    flag = false;
+    descriptionErrMsg.classList.remove('hidden');
+  }
 
-  submitActivity(event);
+  if (minutesInput.value === "" || secondsInput.value === "") {
+    flag = false;
+    timeErrMsg.classList.remove('hidden');
+  }
+
+  if (flag === true) {
+  submitActivity(event);}
+
   return flag;
-
 }
