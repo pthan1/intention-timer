@@ -9,7 +9,7 @@ class Activity{
         this.running = false
     }
 
-    startTimer(event){
+    startTimer(){
         if(this.running){
             return;
         }
