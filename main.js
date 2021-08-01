@@ -7,9 +7,14 @@ var categoryName = document.querySelector("#activityType");
 var leftSectionHeader = document.querySelector("#left-section-header");
 var minutesInput = document.querySelector(".minutes");
 var secondsInput = document.querySelector(".seconds");
+var categoryErrMsg = document.querySelector('.category-err-msg');
+var studyBtn = document.getElementById('study');
+var meditateBtn = document.getElementById('meditate');
+var exerciseBtn = document.getElementById('exercise');
 var activityCards = [];
+var categorySelected;
 
-submitForm.addEventListener("click", submitActivity);
+submitForm.addEventListener("click", validate);
 
 function switchLeftDisplay(){
    timerView.classList.toggle("hidden");
@@ -21,25 +26,40 @@ function submitActivity(event) {
   switchLeftDisplay();
 
   var categoryChoice = document.querySelector('input[name="activity_categories"]:checked');
+
   var newCard = new Activity(categoryChoice.value, activityInput.value, minutesInput.value, secondsInput.value);  
 
   leftSectionHeader.innerText = "Current Activity";
   categoryName.innerText = activityInput.value;  
   activityCards.push(newCard);
-  // if (categoryChoice.value === "study") {
-  //   categoryName.innerText = "Study";
-  // } if (categoryChoice.value === "meditate") {
-  //   categoryName.innerText = "Meditate";
-  // } if (categoryChoice.value === "exercise") {
-  //   categoryName.innerText = "Exercise";
-  // }
 }
 
 function onlyNumberKey(evt) {
-          
   // Only ASCII character in that range allowed
   var ASCIICode = (evt.which) ? evt.which : evt.keyCode
   if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
       return false;
   return true;
+}
+
+
+function validate(event) { 
+  // var allCategoryBtns = document.querySelector('input[name="activity_categories"]');
+  event.preventDefault();
+  var flag = true;
+
+  if ((!studyBtn.checked) && (!meditateBtn.checked) && (!exerciseBtn.checked)) {   //checking if the form is empty
+    console.log('function');
+    console.log('function');
+    //displaying a message if the form is empty
+    flag = false;
+    categoryErrMsg.classList.remove('hidden');
+    return;
+  }
+
+  // if()
+
+  submitActivity(event);
+  return flag;
+
 }
