@@ -13,10 +13,19 @@ var timeErrMsg = document.querySelector('.time-err-msg');
 var studyBtn = document.getElementById('study');
 var meditateBtn = document.getElementById('meditate');
 var exerciseBtn = document.getElementById('exercise');
+var leftSection = document.querySelector('.left-section');
 var activityCards = [];
 var categorySelected;
+var categoryChoice2;
+var startTimerBtn = document.querySelector('#startTimerButton');
+var countdownText = document.querySelector('#countdownTimerText');
 
 submitForm.addEventListener("click", validate);
+startTimerBtn.addEventListener("click", beginCountDown);
+
+function beginCountDown() {
+  categoryChoice2.startTimer();
+}
 
 function switchLeftDisplay(){
    timerView.classList.toggle("hidden");
@@ -26,15 +35,15 @@ function switchLeftDisplay(){
 function submitActivity(event) {
   event.preventDefault();
   switchLeftDisplay();
-
   var categoryChoice = document.querySelector('input[name="activity_categories"]:checked');
-
-  var newCard = new Activity(categoryChoice.value, activityInput.value, minutesInput.value, secondsInput.value);  
-
+  var newCard = new Activity(categoryChoice.value, activityInput.value, minutesInput.value, secondsInput.value);
+  countdownText.innerText = (`${minutesInput.value}:${secondsInput.value}`);
+  categoryChoice2 = newCard;
   leftSectionHeader.innerText = "Current Activity";
-  categoryName.innerText = activityInput.value;  
+  categoryName.innerText = activityInput.value;
   activityCards.push(newCard);
 }
+// leftSection.addEventListener('click', categoryChoice2.startTimer);
 
 function onlyNumberKey(evt) {
   // Only ASCII character in that range allowed
@@ -44,7 +53,7 @@ function onlyNumberKey(evt) {
   return true;
 }
 
-function validate(event) { 
+function validate(event) {
   event.preventDefault();
   var flag = true;
   categoryErrMsg.classList.add('hidden');
