@@ -253,7 +253,7 @@ form , .timer-view {
   top: -15%;
 }
 
-.timer-view button{
+.timer-view #startTimerButton{
   display: flex;
   background-color: inherit;
   position: relative;
@@ -267,6 +267,23 @@ form , .timer-view {
   top: -10%;
   color:white;
 }
+
+.log-activity-button{
+  background-color: #cbc9cf;
+  color: #2b2733;
+  border-radius: 3px;
+  border: 0px;
+  box-shadow: none;
+  width: 190px;
+  height: 30px;
+  font-size:20px;
+}
+.log-activity-button:hover{
+  background-color: #e7ddfa;
+  font-size: 22px;
+  cursor: pointer;
+}
+
 
 .study-start-button{
   border: 3px solid #B3FD78;
