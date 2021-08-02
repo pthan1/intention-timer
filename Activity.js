@@ -6,8 +6,6 @@ class Activity{
         this.seconds = seconds;
         this.completed = false;
         this.id = `ID${Date.now()}`;
-        // this.countdownTimeInMS = (this.minutes*60000)+(this.seconds*1000);
-        // this.duration = countdownTimeInMS/1000
         this.running = false
     }
 
@@ -20,33 +18,30 @@ class Activity{
         var minutes = this.minutes;
         var self = this;
         var interval = setInterval(function(){
-            console.log(minutes+" " + seconds);
-            // document.querySelector("#timer").innerHTML = minutes + ":" + seconds;
             seconds--;
             if (seconds == 0){
                 minutes--;
                 seconds = 60;
-                if(minutes == -1){
-                    clearInterval(interval);
-                    self.markComplete()
-                    return ""
-                    // document.querySelector("#timer").innerHTML = 'Complete!'
+                if(minutes == -1 && seconds == 60){
+                  clearInterval(interval);
+                  countdownText.innerText = (`00:00`);
+                  self.markComplete()
+                  document.querySelector("#startTimerButton").innerText = 'Complete!'
+                  return
                 }
             }
-        }, 1000) //run through the setInterval function every 1000 milliseconds
+            countdownText.innerText = (`${minutes}:${seconds}`);
+        }, 1000)
+      }
 
-
-    }
     markComplete(){
 
-        console.log("timer complete")
     }
     saveToStorage(){
 
     }
 
     parseTime(){
-        
-    }
 
+    }
 }
