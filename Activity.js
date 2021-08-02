@@ -49,7 +49,7 @@ class Activity{
                   clearInterval(interval);
                   countdownText.innerText = (`00:00`);
                   self.markComplete()
-                  document.querySelector("#startTimerButton").innerText = 'Complete!'
+                  document.querySelector("#startTimerButton").innerText = 'COMPLETE!'
                   alert('Timer Complete!')
                   return
                 }
