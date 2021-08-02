@@ -80,6 +80,10 @@ function validate(event) {
     categoryErrMsg.classList.add('hidden');
     descriptionErrMsg.classList.add('hidden');
     timeErrMsg.classList.add('hidden');
+
+    activityInput.style.cssText = "border-bottom: 1px solid #fff;";
+    minutesInput.style.cssText = "border-bottom: 1px solid #fff"
+    secondsInput.style.cssText = "border-bottom: 1px solid #fff"
     
     if ((!studyBtn.checked) && (!meditateBtn.checked) && (!exerciseBtn.checked)) {
         flag = false;
@@ -88,11 +92,14 @@ function validate(event) {
     
     if (activityInput.value === "") {
         flag = false;
+        activityInput.style.cssText = "border-bottom: 1px solid #EFB7EC;";
         descriptionErrMsg.classList.remove('hidden');
     }
     
     if (minutesInput.value === "" && secondsInput.value === "") {
         flag = false;
+        minutesInput.style.cssText = "border-bottom: 1px solid #EFB7EC"
+        secondsInput.style.cssText = "border-bottom: 1px solid #EFB7EC"
         timeErrMsg.classList.remove('hidden');
     }
     
