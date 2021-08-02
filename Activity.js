@@ -50,7 +50,6 @@ class Activity{
                   countdownText.innerText = (`00:00`);
                   self.markComplete()
                   document.querySelector("#startTimerButton").innerText = 'COMPLETE!'
-                  alert('Timer Complete!')
                   return
                 }
             }
@@ -58,10 +57,18 @@ class Activity{
       }
 
     markComplete(){
+        this.completed = true;
+
+        document.querySelector('.log-activity-button').addEventListener('click', this.saveToStorage);
+        document.querySelector('.log-activity-button').classList.remove('hidden')
 
     }
     saveToStorage(){
-
+      var objectToStore = newCard;
+      console.log('after', objectToStore);
+      var stringifiedObject = JSON.stringify(objectToStore);
+      console.log('after stringify', stringifiedObject);
+      localStorage.setItem(`${newCard.id}`, stringifiedObject);
     }
 
     parseTime(){

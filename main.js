@@ -16,7 +16,7 @@ var exerciseBtn = document.getElementById('exercise');
 var leftSection = document.querySelector('.left-section');
 var activityCards = [];
 var radios = document.querySelector('.radios');
-var selectedCategory;
+var selectedCategory = document.querySelector('input[name="activity_categories"]:checked');
 var categoryChoice2;
 var startTimerBtn = document.querySelector('#startTimerButton');
 var countdownText = document.querySelector('#countdownTimerText');
@@ -25,7 +25,8 @@ var logActivityBtn = document.querySelector('.log-activity-button');
 
 
 radios.addEventListener('click', updateCategorySelection);
-logActivityBtn.addEventListener('click', setActivityCardIntoLS)
+// logActivityBtn.addEventListener('click', newCard.saveToStorage);
+//MOVED TO ACTIVITY.JS in MarkComplete method
 
 submitForm.addEventListener("click", validate);
 startTimerBtn.addEventListener("click", beginCountDown);
@@ -119,6 +120,9 @@ function validate(event) {
         document.querySelector('#studyRadio').classList.remove("studyChecked")
         document.querySelector('#meditateRadio').classList.remove("meditateChecked")
         document.querySelector('#exerciseRadio').classList.remove("exerciseChecked")
+        if(!selectedCategory){
+            return;
+        }
         if (selectedCategory.value === "study"){
             document.querySelector('#studyRadio').classList.add("studyChecked")
         }
@@ -132,10 +136,12 @@ function validate(event) {
     
     }
 
-    function setActivityCardIntoLS() {
-      var objectToStore = newCard;
-      console.log('after', objectToStore);
-      var stringifiedObject = JSON.stringify(objectToStore);
-      console.log('after stringify', stringifiedObject);
-      localStorage.setItem(`${newCard.id}`, stringifiedObject);
-    }
+
+// MOVED TO Activity.js method
+    // function setActivityCardIntoLS() {
+    //   var objectToStore = newCard;
+    //   console.log('after', objectToStore);
+    //   var stringifiedObject = JSON.stringify(objectToStore);
+    //   console.log('after stringify', stringifiedObject);
+    //   localStorage.setItem(`${newCard.id}`, stringifiedObject);
+    // }
