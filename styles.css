@@ -255,17 +255,22 @@ form , .timer-view {
 }
 
 .timer-view button{
+  display: flex;
   background-color: inherit;
   position: relative;
   cursor: pointer;
   font-size: 32px;
-  padding: 120px 90px;
-  border-radius:300px;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  top: -10%;
+  color:white;
 }
 
 .study-start-button{
   border: 3px solid #B3FD78;
-  color: #B3FD78;
 }
 .study-start-button:hover{
   padding: 119px 89px;
@@ -273,7 +278,6 @@ form , .timer-view {
 }
 .meditate-start-button {
   border: 3px solid #C278FD;
-  color:#C278FD;
 }
 .meditate-start-button:hover{
   padding: 119px 89px;
@@ -281,7 +285,6 @@ form , .timer-view {
 }
 .exercise-start-button{
   border: 3px solid #FD8078;
-  color: #FD8078;
 }
 .exercise-start-button:hover{
   padding: 119px 89px;
