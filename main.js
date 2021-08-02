@@ -15,10 +15,14 @@ var meditateBtn = document.getElementById('meditate');
 var exerciseBtn = document.getElementById('exercise');
 var leftSection = document.querySelector('.left-section');
 var activityCards = [];
-var categorySelected;
+var radios = document.querySelector('.radios');
+var selectedCategory;
 var categoryChoice2;
 var startTimerBtn = document.querySelector('#startTimerButton');
 var countdownText = document.querySelector('#countdownTimerText');
+
+radios.addEventListener('click', updateCategorySelection);
+// submitForm.addEventListener("click", submitActivity);
 
 submitForm.addEventListener("click", validate);
 startTimerBtn.addEventListener("click", beginCountDown);
@@ -37,9 +41,27 @@ function submitActivity(event) {
   switchLeftDisplay();
   var categoryChoice = document.querySelector('input[name="activity_categories"]:checked');
   var newCard = new Activity(categoryChoice.value, activityInput.value, minutesInput.value, secondsInput.value);
-  countdownText.innerText = (`${minutesInput.value}:${secondsInput.value}`);
+  
+    var parsedMinutes = minutesInput.value;
+    var parsedSeconds = secondsInput.value;
+    if (minutesInput.value.toString().length < 2){
+        var parsedMinutes = `0${minutesInput.value}`
+    }
+    
+    if (secondsInput.value.toString().length < 2){
+        var parsedSeconds = `0${secondsInput.value}`
+    }   
+    if (!minutesInput.value){
+        var parsedMinutes = "00"
+    }
+    if (!secondsInput.value){
+        var parsedSeconds = "00"
+    }
+  
+  countdownText.innerText = (`${parsedMinutes}:${parsedSeconds}`);
   categoryChoice2 = newCard;
   leftSectionHeader.innerText = "Current Activity";
+  startTimerBtn.classList.add(`${categoryChoice.value}-start-button`);
   categoryName.innerText = activityInput.value;
   activityCards.push(newCard);
 }
@@ -51,30 +73,49 @@ function onlyNumberKey(evt) {
   return true;
 }
 
+
 function validate(event) {
-  event.preventDefault();
-  var flag = true;
-  categoryErrMsg.classList.add('hidden');
-  descriptionErrMsg.classList.add('hidden');
-  timeErrMsg.classList.add('hidden');
-
-  if ((!studyBtn.checked) && (!meditateBtn.checked) && (!exerciseBtn.checked)) {
-    flag = false;
-    categoryErrMsg.classList.remove('hidden');
-  }
-
-  if (activityInput.value === "") {
-    flag = false;
-    descriptionErrMsg.classList.remove('hidden');
-  }
-
-  if (minutesInput.value === "" && secondsInput.value === "") {
-    flag = false;
-    timeErrMsg.classList.remove('hidden');
-  }
-
-  if (flag === true) {
-  submitActivity(event);}
-
-  return flag;
-}
+    event.preventDefault();
+    var flag = true;
+    categoryErrMsg.classList.add('hidden');
+    descriptionErrMsg.classList.add('hidden');
+    timeErrMsg.classList.add('hidden');
+    
+    if ((!studyBtn.checked) && (!meditateBtn.checked) && (!exerciseBtn.checked)) {
+        flag = false;
+        categoryErrMsg.classList.remove('hidden');
+    }
+    
+    if (activityInput.value === "") {
+        flag = false;
+        descriptionErrMsg.classList.remove('hidden');
+    }
+    
+    if (minutesInput.value === "" && secondsInput.value === "") {
+        flag = false;
+        timeErrMsg.classList.remove('hidden');
+    }
+    
+    if (flag === true) {
+        submitActivity(event);}
+        
+        return flag;
+    }
+    
+    function updateCategorySelection(){
+        var selectedCategory = document.querySelector('input[name="activity_categories"]:checked');
+        document.querySelector('#studyRadio').classList.remove("studyChecked")
+        document.querySelector('#meditateRadio').classList.remove("meditateChecked")
+        document.querySelector('#exerciseRadio').classList.remove("exerciseChecked")
+        if (selectedCategory.value === "study"){
+            document.querySelector('#studyRadio').classList.add("studyChecked")
+        }
+        else if (selectedCategory.value === "meditate"){
+            document.querySelector('#meditateRadio').classList.add("meditateChecked")
+        }
+        else if (selectedCategory.value === "exercise"){
+            document.querySelector('#exerciseRadio').classList.add("exerciseChecked")
+    
+        }
+    
+    }
