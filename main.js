@@ -61,6 +61,7 @@ function submitActivity(event) {
   countdownText.innerText = (`${parsedMinutes}:${parsedSeconds}`);
   categoryChoice2 = newCard;
   leftSectionHeader.innerText = "Current Activity";
+  startTimerBtn.classList.add(`${categoryChoice.value}-start-button`);
   categoryName.innerText = activityInput.value;
   activityCards.push(newCard);
 }
