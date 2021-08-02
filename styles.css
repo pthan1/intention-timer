@@ -271,11 +271,11 @@ form , .timer-view {
   padding: 119px 89px;
   background-color: rgba(180, 253, 120, 0.25);
 }
-.start-button {
+.meditate-start-button {
   border: 3px solid #C278FD;
   color:#C278FD;
 }
-.start-button:hover{
+.meditate-start-button:hover{
   padding: 119px 89px;
   background-color: rgba(193, 120, 253, 0.25);
 }
