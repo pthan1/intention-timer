@@ -230,7 +230,7 @@ form , .timer-view {
   margin-left: 25px;
 }
 
-.right-section h2 {
+#no-activities-logged {
   font-size: 15px;
   text-align: center;
   color: #cbc9cf;
@@ -325,8 +325,11 @@ form , .timer-view {
 }
 
 #saved-activity-category-text{
+  font-size: 15px;
   font-weight: bold;
-  margin-top: 10px;
+  margin-left: 15px;
+  margin-top: 6px;
+  margin-bottom: 0;
 }
 
 #saved-activity-duration{
