@@ -41,7 +41,24 @@ function submitActivity(event) {
   switchLeftDisplay();
   var categoryChoice = document.querySelector('input[name="activity_categories"]:checked');
   var newCard = new Activity(categoryChoice.value, activityInput.value, minutesInput.value, secondsInput.value);
-  countdownText.innerText = (`${minutesInput.value}:${secondsInput.value}`);
+  
+    var parsedMinutes = minutesInput.value;
+    var parsedSeconds = secondsInput.value;
+    if (minutesInput.value.toString().length < 2){
+        var parsedMinutes = `0${minutesInput.value}`
+    }
+    
+    if (secondsInput.value.toString().length < 2){
+        var parsedSeconds = `0${secondsInput.value}`
+    }   
+    if (!minutesInput.value){
+        var parsedMinutes = "00"
+    }
+    if (!secondsInput.value){
+        var parsedSeconds = "00"
+    }
+  
+  countdownText.innerText = (`${parsedMinutes}:${parsedSeconds}`);
   categoryChoice2 = newCard;
   leftSectionHeader.innerText = "Current Activity";
   categoryName.innerText = activityInput.value;
