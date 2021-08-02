@@ -5,10 +5,6 @@ body {
   background-color: #2b2733;
 }
 
-.hidden {
-  display:none;
-}
-
 nav {
   display: flex;
   justify-content: center;
@@ -219,6 +215,9 @@ form , .timer-view {
 }
 
 .right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   border-left: 3px solid #46424d;
   height: 100vh;
   width: 500px;
@@ -231,7 +230,7 @@ form , .timer-view {
   margin-left: 25px;
 }
 
-.right-section h2 {
+#no-activities-logged {
   font-size: 15px;
   text-align: center;
   color: #cbc9cf;
@@ -289,4 +288,59 @@ form , .timer-view {
 .exercise-start-button:hover{
   padding: 119px 89px;
   background-color: rgba(253, 129, 120, 0.25);
+}
+
+.saved-activity-card-view{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 25px;
+  border: none;
+  border-radius: 5px;
+  background-color: #46424d;
+  color: #FFF;
+  font-size: 16px;
+  width: 31.5vw;
+  height: 11vh;
+  box-shadow: 10px 5px 5px #26222D;
+}
+
+.saved-activity-card-view p{
+  margin-left: 15px;
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 14px;
+  font-weight: 300;
+}
+
+.activity-marker{
+  justify-content: flex-start;
+  align-self: flex-end;
+  margin-top: -60px;
+  margin-right: 15px;
+  height: 3.5vh;
+  width: 0.5vh;
+  border-radius: 2px;
+  background-color: #B3FD78;
+}
+
+#saved-activity-category-text{
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 15px;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+#saved-activity-duration{
+  margin-top: 5px;
+  font-size: 15px
+}
+
+#saved-activity-input{
+margin-top: 15px;
+}
+
+.hidden {
+  display:none;
 }
