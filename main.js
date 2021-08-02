@@ -21,7 +21,7 @@ var categoryChoice2;
 var startTimerBtn = document.querySelector('#startTimerButton');
 var countdownText = document.querySelector('#countdownTimerText');
 var newCard; 
-var logActivityBtn = document.querySelector();
+var logActivityBtn = document.querySelector('.log-activity-button');
 
 
 radios.addEventListener('click', updateCategorySelection);
@@ -44,7 +44,7 @@ function submitActivity(event) {
   switchLeftDisplay();
   var categoryChoice = document.querySelector('input[name="activity_categories"]:checked');
   newCard = new Activity(categoryChoice.value, activityInput.value, minutesInput.value, secondsInput.value);
-
+  
   var parsedMinutes = minutesInput.value;
   var parsedSeconds = secondsInput.value;
     if (minutesInput.value.toString().length < 2){
@@ -68,7 +68,7 @@ function submitActivity(event) {
   leftSectionHeader.innerText = "Current Activity";
   startTimerBtn.classList.add(`${categoryChoice.value}-start-button`);
   categoryName.innerText = activityInput.value;
-  activityCards.push(newCard);
+  // activityCards.push(newCard);
 }
 
 function onlyNumberKey(evt) {
@@ -130,4 +130,12 @@ function validate(event) {
     
         }
     
+    }
+
+    function setActivityCardIntoLS() {
+      var objectToStore = newCard;
+      console.log('after', objectToStore);
+      var stringifiedObject = JSON.stringify(objectToStore);
+      console.log('after stringify', stringifiedObject);
+      localStorage.setItem(`${newCard.id}`, stringifiedObject);
     }
