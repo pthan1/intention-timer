@@ -50,7 +50,6 @@ class Activity{
                   countdownText.innerText = (`00:00`);
                   self.markComplete()
                   document.querySelector("#startTimerButton").innerText = 'COMPLETE!'
-                  alert('Timer Complete!')
                   return
                 }
             }
@@ -58,7 +57,10 @@ class Activity{
       }
 
     markComplete(){
+        this.completed = true;
+        document.querySelector('.log-activity-button').classList.remove('hidden')
 
+        
     }
     saveToStorage(){
 
