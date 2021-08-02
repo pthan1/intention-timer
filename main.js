@@ -20,9 +20,12 @@ var selectedCategory;
 var categoryChoice2;
 var startTimerBtn = document.querySelector('#startTimerButton');
 var countdownText = document.querySelector('#countdownTimerText');
+var newCard; 
+var logActivityBtn = document.querySelector();
+
 
 radios.addEventListener('click', updateCategorySelection);
-// submitForm.addEventListener("click", submitActivity);
+logActivityBtn.addEventListener('click', setActivityCardIntoLS)
 
 submitForm.addEventListener("click", validate);
 startTimerBtn.addEventListener("click", beginCountDown);
@@ -40,10 +43,10 @@ function submitActivity(event) {
   event.preventDefault();
   switchLeftDisplay();
   var categoryChoice = document.querySelector('input[name="activity_categories"]:checked');
-  var newCard = new Activity(categoryChoice.value, activityInput.value, minutesInput.value, secondsInput.value);
-  
-    var parsedMinutes = minutesInput.value;
-    var parsedSeconds = secondsInput.value;
+  newCard = new Activity(categoryChoice.value, activityInput.value, minutesInput.value, secondsInput.value);
+
+  var parsedMinutes = minutesInput.value;
+  var parsedSeconds = secondsInput.value;
     if (minutesInput.value.toString().length < 2){
         var parsedMinutes = `0${minutesInput.value}`
     }
@@ -57,6 +60,8 @@ function submitActivity(event) {
     if (!secondsInput.value){
         var parsedSeconds = "00"
     }
+
+
   
   countdownText.innerText = (`${parsedMinutes}:${parsedSeconds}`);
   categoryChoice2 = newCard;
