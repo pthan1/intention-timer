@@ -114,52 +114,58 @@ function validate(event) {
         submitActivity(event);}
         
         return flag;
+}
+    
+function updateCategorySelection(){
+    var selectedCategory = document.querySelector('input[name="activity_categories"]:checked');
+    document.querySelector('#studyRadio').classList.remove("studyChecked")
+    document.querySelector('#meditateRadio').classList.remove("meditateChecked")
+    document.querySelector('#exerciseRadio').classList.remove("exerciseChecked")
+    if(!selectedCategory){
+        return;
     }
-    
-    function updateCategorySelection(){
-        var selectedCategory = document.querySelector('input[name="activity_categories"]:checked');
-        document.querySelector('#studyRadio').classList.remove("studyChecked")
-        document.querySelector('#meditateRadio').classList.remove("meditateChecked")
-        document.querySelector('#exerciseRadio').classList.remove("exerciseChecked")
-        if(!selectedCategory){
-            return;
-        }
-        if (selectedCategory.value === "study"){
-            document.querySelector('#studyRadio').classList.add("studyChecked")
-        }
-        else if (selectedCategory.value === "meditate"){
-            document.querySelector('#meditateRadio').classList.add("meditateChecked")
-        }
-        else if (selectedCategory.value === "exercise"){
-            document.querySelector('#exerciseRadio').classList.add("exerciseChecked")
-    
-        }
-    
+    if (selectedCategory.value === "study"){
+        document.querySelector('#studyRadio').classList.add("studyChecked")
     }
-    var LSActivityObject;
+    else if (selectedCategory.value === "meditate"){
+        document.querySelector('#meditateRadio').classList.add("meditateChecked")
+    }
+    else if (selectedCategory.value === "exercise"){
+        document.querySelector('#exerciseRadio').classList.add("exerciseChecked")
 
-    function populatePastActivties(){
-         for (var i = 1; i < localStorage.length+1; i++){
-             var activity = `activity-${i}`
-             var LSActivityNotParsed = localStorage.getItem(activity)
-             var LSActivityObject = JSON.parse(LSActivityNotParsed)
-             var HTMLPerObject = pastActivityHTML(LSActivityObject)
-             console.log(HTMLPerObject)
-             
-         }
-         
     }
+    
+}
 
-    function pastActivityHTML(LSObject){
-        return `
-        <article class="saved-activity-card-view">
-          <h2 id="saved-activity-category-text">${LSObject.category}</h2>
-          <p id="saved-activity-duration">${LSObject.originalTime}</p>
-          <p id="saved-activity-input">${LSObject.description}</p>
-          <div class="${LSObject.category}-activity-marker"></div>
-        </article>
-        `
-    }
+function populatePastActivties(){
+        for (var i = 1; i < localStorage.length+1; i++){
+            var activity = `activity-${i}`;
+            var LSActivityNotParsed = localStorage.getItem(activity);
+            var LSActivityObject = JSON.parse(LSActivityNotParsed);
+            var HTMLPerObject = pastActivityHTML(LSActivityObject, i);
+            var pastActivityContainer = document.querySelector('.no-activities-view');
+            pastActivityContainer.insertAdjacentHTML('afterend', HTMLPerObject);
+
+            console.log(HTMLPerObject)
+            
+        }
+        
+}
+
+function pastActivityHTML(LSObject, position){
+    return `
+    <article id="PastActivityNum${position}" class="saved-activity-card-view">
+        <h2 id="saved-activity-category-text">${LSObject.category}</h2>
+        <p id="saved-activity-duration">${LSObject.originalTime}</p>
+        <p id="saved-activity-input">${LSObject.description}</p>
+        <div class="${LSObject.category}-activity-marker"></div>
+    </article>
+    `
+}
+
+
+
+populatePastActivties()
 
 
 // MOVED TO Activity.js method
