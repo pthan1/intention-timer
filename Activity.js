@@ -50,7 +50,7 @@ class Activity{
                 seconds = 59;
                 if(minutes == -1 && seconds == 59){
                   clearInterval(interval);
-                  countdownText.innerText = (`00:00`);
+                  countdownText.innerText = (`Way to Slay!`);
                   self.markComplete()
                   document.querySelector("#startTimerButton").innerText = 'COMPLETE!'
                   return
@@ -62,17 +62,16 @@ class Activity{
     markComplete(){
         this.completed = true;
 
-        document.querySelector('.log-activity-button').addEventListener('click', this.saveToStorage);
         document.querySelector('.log-activity-button').classList.remove('hidden')
+        document.querySelector('.log-activity-button').addEventListener('click', this.saveToStorage);
 
     }
     saveToStorage(){
-        
         var objectToStore = newCard;
-        console.log('after', objectToStore);
         var stringifiedObject = JSON.stringify(objectToStore);
-        console.log('after stringify', stringifiedObject);
         localStorage.setItem(`activity-${(localStorage.length+1)}`, stringifiedObject);
+        populatePastActivties()
+        document.querySelector('.log-activity-button').classList.add('hidden')
     }
 
 }
