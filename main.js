@@ -74,16 +74,16 @@ function onlyNumberKey(evt) {
 }
 
 
+
 function validate(event) {
     event.preventDefault();
     var flag = true;
     categoryErrMsg.classList.add('hidden');
     descriptionErrMsg.classList.add('hidden');
     timeErrMsg.classList.add('hidden');
-
     activityInput.style.cssText = "border-bottom: 1px solid #fff;";
-    minutesInput.style.cssText = "border-bottom: 1px solid #fff"
-    secondsInput.style.cssText = "border-bottom: 1px solid #fff"
+    minutesInput.style.cssText = "border-bottom: 1px solid #fff";
+    secondsInput.style.cssText = "border-bottom: 1px solid #fff";
     
     if ((!studyBtn.checked) && (!meditateBtn.checked) && (!exerciseBtn.checked)) {
         flag = false;
