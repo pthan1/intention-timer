@@ -71,8 +71,8 @@ class Activity{
         var stringifiedObject = JSON.stringify(objectToStore);
         localStorage.setItem(`activity-${(localStorage.length+1)}`, stringifiedObject);
         noActivitiesLoggedStatement.classList.add('hidden');
-        populatePastActivities()
-        document.querySelector('.log-activity-button').classList.add('hidden')
+        populatePastActivities();
+        document.querySelector('.log-activity-button').classList.add('hidden');
     }
 
 }
