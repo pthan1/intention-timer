@@ -23,7 +23,7 @@ var countdownText = document.querySelector('#countdownTimerText');
 var newCard; 
 var logActivityBtn = document.querySelector('.log-activity-button');
 var myStorage = window.localStorage;
-
+var noActivitiesLoggedStatement = document.getElementById('no-activities-logged');
 
 radios.addEventListener('click', updateCategorySelection);
 // logActivityBtn.addEventListener('click', newCard.saveToStorage);
@@ -31,6 +31,12 @@ radios.addEventListener('click', updateCategorySelection);
 
 submitForm.addEventListener("click", validate);
 startTimerBtn.addEventListener("click", beginCountDown);
+
+window.onload = function() {
+  if (localStorage.length > 0) {
+  noActivitiesLoggedStatement.classList.add('hidden');
+  }
+}
 
 function beginCountDown() {
   categoryChoice2.startTimer();
@@ -137,7 +143,7 @@ function updateCategorySelection(){
     
 }
 
-function populatePastActivties(){
+function populatePastActivities(){
         for (var i = 1; i < localStorage.length+1; i++){
             var activity = `activity-${i}`;
             var LSActivityNotParsed = localStorage.getItem(activity);
@@ -146,7 +152,7 @@ function populatePastActivties(){
             var pastActivityContainer = document.querySelector('.no-activities-view');
             pastActivityContainer.insertAdjacentHTML('afterend', HTMLPerObject);
 
-            console.log(HTMLPerObject)
+            // console.log(HTMLPerObject)
             
         }
         
@@ -173,9 +179,7 @@ function pastActivityHTML(LSObject, position){
     `
 }
 
-
-
-populatePastActivties()
+populatePastActivities()
 
 
 // MOVED TO Activity.js method
