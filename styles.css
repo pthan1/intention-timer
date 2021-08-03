@@ -34,6 +34,11 @@ main {
   font-weight: 300;
 }
 
+.form-align h2 {
+  font-weight: 400;
+}
+
+
 form , .timer-view, .create-new-activity-view {
   display: flex;
   justify-content: center;
