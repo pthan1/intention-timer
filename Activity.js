@@ -73,6 +73,9 @@ class Activity{
         noActivitiesLoggedStatement.classList.add('hidden');
         populatePastActivities();
         document.querySelector('.log-activity-button').classList.add('hidden');
+        document.querySelector('#timerView').classList.add('hidden');
+        leftSectionHeader.innerText = "Completed Activity";
+        document.querySelector('#createNewActivityBtnView').classList.remove('hidden');
     }
 
 }
