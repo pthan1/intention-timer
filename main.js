@@ -22,6 +22,7 @@ var startTimerBtn = document.querySelector('#startTimerButton');
 var countdownText = document.querySelector('#countdownTimerText');
 var newCard; 
 var logActivityBtn = document.querySelector('.log-activity-button');
+var myStorage = window.localStorage;
 
 
 radios.addEventListener('click', updateCategorySelection);
@@ -134,6 +135,30 @@ function validate(event) {
     
         }
     
+    }
+    var LSActivityObject;
+
+    function populatePastActivties(){
+         for (var i = 1; i < localStorage.length+1; i++){
+             var activity = `activity-${i}`
+             var LSActivityNotParsed = localStorage.getItem(activity)
+             var LSActivityObject = JSON.parse(LSActivityNotParsed)
+             var HTMLPerObject = pastActivityHTML(LSActivityObject)
+             console.log(HTMLPerObject)
+             
+         }
+         
+    }
+
+    function pastActivityHTML(LSObject){
+        return `
+        <article class="saved-activity-card-view">
+          <h2 id="saved-activity-category-text">${LSObject.category}</h2>
+          <p id="saved-activity-duration">${LSObject.originalTime}</p>
+          <p id="saved-activity-input">${LSObject.description}</p>
+          <div class="${LSObject.category}-activity-marker"></div>
+        </article>
+        `
     }
 
 
