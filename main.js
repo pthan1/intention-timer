@@ -24,11 +24,14 @@ var newCard;
 var logActivityBtn = document.querySelector('.log-activity-button');
 var myStorage = window.localStorage;
 var noActivitiesLoggedStatement = document.getElementById('no-activities-logged');
-
+var logNewActivityBtn = document.querySelector('.create-new-activity-button');
 radios.addEventListener('click', updateCategorySelection);
 
 submitForm.addEventListener("click", validate);
 startTimerBtn.addEventListener("click", beginCountDown);
+logNewActivityBtn.addEventListener("click", function() {
+  location.reload();
+});
 
 window.onload = function() {
   if (localStorage.length > 0) {
