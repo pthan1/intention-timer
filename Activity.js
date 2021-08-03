@@ -2,21 +2,24 @@ class Activity{
     constructor(category, description, minutes, seconds){
         this.category = category;
         this.description = description;
-        this.minutes = minutes;
-        this.seconds = seconds;
+        this.minutes = minutes || 0;
+        this.seconds = seconds || 0;
+        this.originalTime;
         this.completed = false;
         this.id = `ID${Date.now()}`;
         this.running = false
     }
 
     startTimer(){
-        if(this.running){
+        if (!this.running){
+          this.originalTime = `${this.minutes} MIN ${this.seconds} SEC`;
+        }
+        if (this.running){
             return;
         }
         this.running = true;
         var seconds = this.seconds;
         var minutes = this.minutes;
-        var parsedTime;
         var self = this;
         var interval = setInterval(function(){
             var parsedMinutes = minutes;
@@ -41,13 +44,13 @@ class Activity{
             countdownText.innerText = (`${parsedTime}`);
             console.log(`${minutes}-${seconds}`)
             seconds--;
-            
+
             if (seconds == -1){
                 minutes--;
                 seconds = 59;
                 if(minutes == -1 && seconds == 59){
                   clearInterval(interval);
-                  countdownText.innerText = (`00:00`);
+                  countdownText.innerText = (`Way to Slay!`);
                   self.markComplete()
                   document.querySelector("#startTimerButton").innerText = 'COMPLETE!'
                   return
@@ -59,14 +62,16 @@ class Activity{
     markComplete(){
         this.completed = true;
         document.querySelector('.log-activity-button').classList.remove('hidden')
+        document.querySelector('.log-activity-button').addEventListener('click', this.saveToStorage);
 
         
     }
     saveToStorage(){
-
+        var objectToStore = newCard;
+        var stringifiedObject = JSON.stringify(objectToStore);
+        localStorage.setItem(`activity-${(localStorage.length+1)}`, stringifiedObject);
+        populatePastActivties()
+        document.querySelector('.log-activity-button').classList.add('hidden')
     }
 
-    parseTime(){
-
-    }
 }

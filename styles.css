@@ -311,6 +311,7 @@ form , .timer-view {
   flex-direction: column;
   align-items: flex-start;
   margin-left: 25px;
+  margin-bottom: 10px;
   border: none;
   border-radius: 5px;
   background-color: #46424d;
@@ -321,6 +322,7 @@ form , .timer-view {
   box-shadow: 10px 5px 5px #26222D;
 }
 
+
 .saved-activity-card-view p{
   margin-left: 15px;
   margin-top: 0;
@@ -329,7 +331,7 @@ form , .timer-view {
   font-weight: 300;
 }
 
-.activity-marker{
+.saved-activity-card-view div{
   justify-content: flex-start;
   align-self: flex-end;
   margin-top: -60px;
@@ -337,10 +339,20 @@ form , .timer-view {
   height: 3.5vh;
   width: 0.5vh;
   border-radius: 2px;
+}
+.study-activity-marker{
   background-color: #B3FD78;
 }
+.meditate-activity-marker{
+  background-color: #C278FD;
+}
+.exercise-activity-marker{
+  background-color: #FD8078;
+}
+
 
 #saved-activity-category-text{
+  text-transform: capitalize;
   font-size: 15px;
   font-weight: bold;
   margin-left: 15px;

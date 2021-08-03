@@ -16,13 +16,18 @@ var exerciseBtn = document.getElementById('exercise');
 var leftSection = document.querySelector('.left-section');
 var activityCards = [];
 var radios = document.querySelector('.radios');
-var selectedCategory;
+var selectedCategory = document.querySelector('input[name="activity_categories"]:checked');
 var categoryChoice2;
 var startTimerBtn = document.querySelector('#startTimerButton');
 var countdownText = document.querySelector('#countdownTimerText');
+var newCard; 
+var logActivityBtn = document.querySelector('.log-activity-button');
+var myStorage = window.localStorage;
+
 
 radios.addEventListener('click', updateCategorySelection);
-// submitForm.addEventListener("click", submitActivity);
+// logActivityBtn.addEventListener('click', newCard.saveToStorage);
+//MOVED TO ACTIVITY.JS in MarkComplete method
 
 submitForm.addEventListener("click", validate);
 startTimerBtn.addEventListener("click", beginCountDown);
@@ -40,10 +45,10 @@ function submitActivity(event) {
   event.preventDefault();
   switchLeftDisplay();
   var categoryChoice = document.querySelector('input[name="activity_categories"]:checked');
-  var newCard = new Activity(categoryChoice.value, activityInput.value, minutesInput.value, secondsInput.value);
+  newCard = new Activity(categoryChoice.value, activityInput.value, minutesInput.value, secondsInput.value);
   
-    var parsedMinutes = minutesInput.value;
-    var parsedSeconds = secondsInput.value;
+  var parsedMinutes = minutesInput.value;
+  var parsedSeconds = secondsInput.value;
     if (minutesInput.value.toString().length < 2){
         var parsedMinutes = `0${minutesInput.value}`
     }
@@ -57,13 +62,15 @@ function submitActivity(event) {
     if (!secondsInput.value){
         var parsedSeconds = "00"
     }
+
+
   
   countdownText.innerText = (`${parsedMinutes}:${parsedSeconds}`);
   categoryChoice2 = newCard;
   leftSectionHeader.innerText = "Current Activity";
   startTimerBtn.classList.add(`${categoryChoice.value}-start-button`);
   categoryName.innerText = activityInput.value;
-  activityCards.push(newCard);
+  // activityCards.push(newCard);
 }
 
 function onlyNumberKey(evt) {
@@ -107,22 +114,75 @@ function validate(event) {
         submitActivity(event);}
         
         return flag;
+}
+    
+function updateCategorySelection(){
+    var selectedCategory = document.querySelector('input[name="activity_categories"]:checked');
+    document.querySelector('#studyRadio').classList.remove("studyChecked")
+    document.querySelector('#meditateRadio').classList.remove("meditateChecked")
+    document.querySelector('#exerciseRadio').classList.remove("exerciseChecked")
+    if(!selectedCategory){
+        return;
+    }
+    if (selectedCategory.value === "study"){
+        document.querySelector('#studyRadio').classList.add("studyChecked")
+    }
+    else if (selectedCategory.value === "meditate"){
+        document.querySelector('#meditateRadio').classList.add("meditateChecked")
+    }
+    else if (selectedCategory.value === "exercise"){
+        document.querySelector('#exerciseRadio').classList.add("exerciseChecked")
+
     }
     
-    function updateCategorySelection(){
-        var selectedCategory = document.querySelector('input[name="activity_categories"]:checked');
-        document.querySelector('#studyRadio').classList.remove("studyChecked")
-        document.querySelector('#meditateRadio').classList.remove("meditateChecked")
-        document.querySelector('#exerciseRadio').classList.remove("exerciseChecked")
-        if (selectedCategory.value === "study"){
-            document.querySelector('#studyRadio').classList.add("studyChecked")
+}
+
+function populatePastActivties(){
+        for (var i = 1; i < localStorage.length+1; i++){
+            var activity = `activity-${i}`;
+            var LSActivityNotParsed = localStorage.getItem(activity);
+            var LSActivityObject = JSON.parse(LSActivityNotParsed);
+            var HTMLPerObject = pastActivityHTML(LSActivityObject, i);
+            var pastActivityContainer = document.querySelector('.no-activities-view');
+            pastActivityContainer.insertAdjacentHTML('afterend', HTMLPerObject);
+
+            console.log(HTMLPerObject)
+            
         }
-        else if (selectedCategory.value === "meditate"){
-            document.querySelector('#meditateRadio').classList.add("meditateChecked")
-        }
-        else if (selectedCategory.value === "exercise"){
-            document.querySelector('#exerciseRadio').classList.add("exerciseChecked")
-    
-        }
-    
-    }
+        
+}
+
+function pastActivityHTML(LSObject, position){
+// LSObject.originalTime = [M,S](as integers)
+// to M MIN & S SEC
+
+//LSObject.category = "study"/"meditate"/"exercise"
+// to "Study" / "Meditate" / "Exercise"
+
+    var timeArray = LSObject.originalTime;
+
+    // 5 MIN 2 SEC
+    var formattedTime = LSObject
+    return `
+    <article id="PastActivityNum${position}" class="saved-activity-card-view">
+        <h2 id="saved-activity-category-text">${LSObject.category}</h2>
+        <p id="saved-activity-duration">${LSObject.originalTime}</p>
+        <p id="saved-activity-input">${LSObject.description}</p>
+        <div class="${LSObject.category}-activity-marker"></div>
+    </article>
+    `
+}
+
+
+
+populatePastActivties()
+
+
+// MOVED TO Activity.js method
+    // function setActivityCardIntoLS() {
+    //   var objectToStore = newCard;
+    //   console.log('after', objectToStore);
+    //   var stringifiedObject = JSON.stringify(objectToStore);
+    //   console.log('after stringify', stringifiedObject);
+    //   localStorage.setItem(`${newCard.id}`, stringifiedObject);
+    // }
