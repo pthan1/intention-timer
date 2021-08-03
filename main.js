@@ -20,17 +20,18 @@ var selectedCategory = document.querySelector('input[name="activity_categories"]
 var categoryChoice2;
 var startTimerBtn = document.querySelector('#startTimerButton');
 var countdownText = document.querySelector('#countdownTimerText');
-var newCard; 
+var newCard;
 var logActivityBtn = document.querySelector('.log-activity-button');
 var myStorage = window.localStorage;
 var noActivitiesLoggedStatement = document.getElementById('no-activities-logged');
-
+var logNewActivityBtn = document.querySelector('.create-new-activity-button');
 radios.addEventListener('click', updateCategorySelection);
-// logActivityBtn.addEventListener('click', newCard.saveToStorage);
-//MOVED TO ACTIVITY.JS in MarkComplete method
 
 submitForm.addEventListener("click", validate);
 startTimerBtn.addEventListener("click", beginCountDown);
+logNewActivityBtn.addEventListener("click", function() {
+  location.reload();
+});
 
 window.onload = function() {
   if (localStorage.length > 0) {
@@ -52,16 +53,16 @@ function submitActivity(event) {
   switchLeftDisplay();
   var categoryChoice = document.querySelector('input[name="activity_categories"]:checked');
   newCard = new Activity(categoryChoice.value, activityInput.value, minutesInput.value, secondsInput.value);
-  
+
   var parsedMinutes = minutesInput.value;
   var parsedSeconds = secondsInput.value;
     if (minutesInput.value.toString().length < 2){
         var parsedMinutes = `0${minutesInput.value}`
     }
-    
+
     if (secondsInput.value.toString().length < 2){
         var parsedSeconds = `0${secondsInput.value}`
-    }   
+    }
     if (!minutesInput.value){
         var parsedMinutes = "00"
     }
@@ -70,13 +71,12 @@ function submitActivity(event) {
     }
 
 
-  
+
   countdownText.innerText = (`${parsedMinutes}:${parsedSeconds}`);
   categoryChoice2 = newCard;
   leftSectionHeader.innerText = "Current Activity";
   startTimerBtn.classList.add(`${categoryChoice.value}-start-button`);
   categoryName.innerText = activityInput.value;
-  // activityCards.push(newCard);
 }
 
 function onlyNumberKey(evt) {
@@ -97,31 +97,31 @@ function validate(event) {
     activityInput.style.cssText = "border-bottom: 1px solid #fff;";
     minutesInput.style.cssText = "border-bottom: 1px solid #fff";
     secondsInput.style.cssText = "border-bottom: 1px solid #fff";
-    
+
     if ((!studyBtn.checked) && (!meditateBtn.checked) && (!exerciseBtn.checked)) {
         flag = false;
         categoryErrMsg.classList.remove('hidden');
     }
-    
+
     if (activityInput.value === "") {
         flag = false;
         activityInput.style.cssText = "border-bottom: 1px solid #EFB7EC;";
         descriptionErrMsg.classList.remove('hidden');
     }
-    
+
     if (minutesInput.value === "" && secondsInput.value === "") {
         flag = false;
         minutesInput.style.cssText = "border-bottom: 1px solid #EFB7EC"
         secondsInput.style.cssText = "border-bottom: 1px solid #EFB7EC"
         timeErrMsg.classList.remove('hidden');
     }
-    
+
     if (flag === true) {
         submitActivity(event);}
-        
+
         return flag;
 }
-    
+
 function updateCategorySelection(){
     var selectedCategory = document.querySelector('input[name="activity_categories"]:checked');
     document.querySelector('#studyRadio').classList.remove("studyChecked")
@@ -140,7 +140,7 @@ function updateCategorySelection(){
         document.querySelector('#exerciseRadio').classList.add("exerciseChecked")
 
     }
-    
+
 }
 
 function populatePastActivities(){
@@ -152,13 +152,10 @@ function populatePastActivities(){
             var LSActivityNotParsed = localStorage.getItem(activity);
             var LSActivityObject = JSON.parse(LSActivityNotParsed);
             var HTMLPerObject = pastActivityHTML(LSActivityObject, i);
-            // var pastActivityContainer = document.querySelector('.no-activities-view');
             pastActivityContainer.insertAdjacentHTML('afterbegin', HTMLPerObject);
 
-            // console.log(HTMLPerObject)
-            
         }
-        
+
 }
 
 function pastActivityHTML(LSObject, position){
@@ -173,13 +170,3 @@ function pastActivityHTML(LSObject, position){
 }
 
 populatePastActivities()
-
-
-// MOVED TO Activity.js method
-    // function setActivityCardIntoLS() {
-    //   var objectToStore = newCard;
-    //   console.log('after', objectToStore);
-    //   var stringifiedObject = JSON.stringify(objectToStore);
-    //   console.log('after stringify', stringifiedObject);
-    //   localStorage.setItem(`${newCard.id}`, stringifiedObject);
-    // }
