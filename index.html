@@ -1,71 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap" rel="stylesheet">
-    <title>Intention Timer</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap" rel="stylesheet">
+  <title>Intention Timer</title>
 </head>
 <body>
   <nav>INTENTION TIMER</nav>
   <main>
     <section class="left-section">
       <h1 id="left-section-header">New Activity</h1>
-      <span class="" id="formView">
-        <!-- REMOVE ^^ HIDDEN FROM HERE -->
+      <span id="formView">
         <form name="activity_form" onSubmit="return validate(event);" />
-          <div class="form-align">
-            <h2>Select a category:</h2>
-            <div class= "radios">
-              <div id= "studyRadio" class="activity-selection">
-                <label for="study">
-                  <input type="radio" name="activity_categories" id="study" value="study" >
-                  <img class="image" src="./assets/study.svg" alt="study button">
-                  <p>Study</p>
-                </label>
-              </div>
-              <div  id="meditateRadio" class="activity-selection">
-                <label for="meditate">
-                  <input type="radio" name="activity_categories" id="meditate" value="meditate">
-                  <img class="image" src="./assets/meditate.svg" alt="study button">
-                  <p>Meditate</p>
-                </label>
-              </div>
-              <div  id="exerciseRadio" class="activity-selection">
-                <label for="exercise">
-                  <input type="radio" name="activity_categories" id="exercise" value="exercise">
-                  <img class="image" src="./assets/exercise.svg" alt="study button">
-                  <p>Exercise</p>
-                </label>
-              </div>
+        <div class="form-align">
+          <h2>Select a category:</h2>
+          <div class="radios">
+            <div id="studyRadio" class="activity-selection">
+              <label for="study">
+                <input type="radio" name="activity_categories" id="study" value="study">
+                <img class="image" src="./assets/study.svg" alt="study button">
+                <p>Study</p>
+              </label>
             </div>
-            <p class="category-err-msg error-message hidden">⚠ An activity is required.</p>
-            <div class="accomplish-input">
-              <h2>What would you like to accomplish during this time?</h2>
-              <input class ="text-field-long" type='text' size="93">
+            <div id="meditateRadio" class="activity-selection">
+              <label for="meditate">
+                <input type="radio" name="activity_categories" id="meditate" value="meditate">
+                <img class="image" src="./assets/meditate.svg" alt="study button">
+                <p>Meditate</p>
+              </label>
             </div>
-            <p class="desc-err-msg error-message hidden">⚠ A description is required.</p>
-            <div class="time-input">
-              <div class="time-input-sections">
-                <h2>Minutes</h2>
-                <input class="text-field minutes" type='number' size="50" onkeypress="return onlyNumberKey(event)" />
-              </div>
-              <div class="time-input-sections">
-                <h2>Seconds</h2>
-                <input class="text-field seconds" type='number' size="50" onkeypress="return onlyNumberKey(event)" />
-              </div>
+            <div id="exerciseRadio" class="activity-selection">
+              <label for="exercise">
+                <input type="radio" name="activity_categories" id="exercise" value="exercise">
+                <img class="image" src="./assets/exercise.svg" alt="study button">
+                <p>Exercise</p>
+              </label>
             </div>
-            <p class="time-err-msg error-message hidden">⚠ A duration is required.</p>
-            <input type="submit" class="activity-button" value="START ACTIVITY">
           </div>
+          <p class="category-err-msg error-message hidden">⚠ An activity is required.</p>
+          <div class="accomplish-input">
+            <h2>What would you like to accomplish during this time?</h2>
+            <input class="text-field-long" type="text" size="93">
+          </div>
+          <p class="desc-err-msg error-message hidden">⚠ A description is required.</p>
+          <div class="time-input">
+            <div class="time-input-sections">
+              <h2>Minutes</h2>
+              <input class="text-field minutes" type="number" size="50" onkeypress="return onlyNumberKey(event)" />
+            </div>
+            <div class="time-input-sections">
+              <h2>Seconds</h2>
+              <input class="text-field seconds" type="number" size="50" onkeypress="return onlyNumberKey(event)" />
+            </div>
+          </div>
+          <p class="time-err-msg error-message hidden">⚠ A duration is required.</p>
+          <input type="submit" class="activity-button" value="START ACTIVITY">
+        </div>
         </form>
       </span>
       <span class="hidden" id="timerView">
-        <!-- ADD HIDDEN HERE WHEN DONE ^^ -->
         <div class="timer-view">
           <p id="activityType">Activity Type</p>
           <span id="countdownTimerText">5:00</span>
@@ -86,12 +84,6 @@
       </div>
       <div id="past-activities-container">
       </div>
-        <!-- <article class="saved-activity-card-view">
-          <h2 id="saved-activity-category-text">Study</h2>
-          <p id="saved-activity-duration">15 MIN</p>
-          <p id="saved-activity-input">Complete Challenge from Small Groups.</p>
-          <div class="study-activity-marker"></div>
-        </article> -->
     </section>
   </main>
 </body>
