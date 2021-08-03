@@ -144,13 +144,16 @@ function updateCategorySelection(){
 }
 
 function populatePastActivities(){
-        for (var i = 1; i < localStorage.length+1; i++){
+  var pastActivityContainer = document.querySelector('#past-activities-container');
+  pastActivityContainer.innerHTML = "";
+  for (var i = 1; i < localStorage.length+1; i++){
+
             var activity = `activity-${i}`;
             var LSActivityNotParsed = localStorage.getItem(activity);
             var LSActivityObject = JSON.parse(LSActivityNotParsed);
             var HTMLPerObject = pastActivityHTML(LSActivityObject, i);
-            var pastActivityContainer = document.querySelector('.no-activities-view');
-            pastActivityContainer.insertAdjacentHTML('afterend', HTMLPerObject);
+            // var pastActivityContainer = document.querySelector('.no-activities-view');
+            pastActivityContainer.insertAdjacentHTML('afterbegin', HTMLPerObject);
 
             // console.log(HTMLPerObject)
             
@@ -159,16 +162,6 @@ function populatePastActivities(){
 }
 
 function pastActivityHTML(LSObject, position){
-// LSObject.originalTime = [M,S](as integers)
-// to M MIN & S SEC
-
-//LSObject.category = "study"/"meditate"/"exercise"
-// to "Study" / "Meditate" / "Exercise"
-
-    var timeArray = LSObject.originalTime;
-
-    // 5 MIN 2 SEC
-    var formattedTime = LSObject
     return `
     <article id="PastActivityNum${position}" class="saved-activity-card-view">
         <h2 id="saved-activity-category-text">${LSObject.category}</h2>
