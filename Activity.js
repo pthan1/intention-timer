@@ -4,19 +4,22 @@ class Activity{
         this.description = description;
         this.minutes = minutes;
         this.seconds = seconds;
+        this.originalTime;
         this.completed = false;
         this.id = `ID${Date.now()}`;
         this.running = false
     }
 
     startTimer(){
-        if(this.running){
+        if (!this.running){
+            this.originalTime = [this.minutes , this.seconds]
+        }
+        if (this.running){
             return;
         }
         this.running = true;
         var seconds = this.seconds;
         var minutes = this.minutes;
-        var parsedTime;
         var self = this;
         var interval = setInterval(function(){
             var parsedMinutes = minutes;
@@ -64,14 +67,12 @@ class Activity{
 
     }
     saveToStorage(){
-      var objectToStore = newCard;
-      console.log('after', objectToStore);
-      var stringifiedObject = JSON.stringify(objectToStore);
-      console.log('after stringify', stringifiedObject);
-      localStorage.setItem(`${newCard.id}`, stringifiedObject);
+        
+        var objectToStore = newCard;
+        console.log('after', objectToStore);
+        var stringifiedObject = JSON.stringify(objectToStore);
+        console.log('after stringify', stringifiedObject);
+        localStorage.setItem(`activity-${(localStorage.length+1)}`, stringifiedObject);
     }
 
-    parseTime(){
-
-    }
 }
