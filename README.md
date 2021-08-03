@@ -4,7 +4,7 @@
 ## Contributers
 
 [Anna Johnson](https://github.com/annnuuuh)  
-[Phil Than](https://github.com/pthan1)
+[Phil Than](https://github.com/pthan1)  
 [Nate Sheridan](https://github.com/natesheridan)
 
 ### Languages and Libraries
