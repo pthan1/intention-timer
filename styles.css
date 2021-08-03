@@ -38,7 +38,8 @@ main {
   font-weight: 400;
 }
 
-form , .timer-view {
+
+form , .timer-view, .create-new-activity-view {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -288,7 +289,6 @@ form , .timer-view {
   cursor: pointer;
 }
 
-
 .study-start-button{
   border: 3px solid #B3FD78;
 }
@@ -357,6 +357,7 @@ form , .timer-view {
 
 
 #saved-activity-category-text{
+  text-transform: capitalize;
   font-size: 15px;
   font-weight: bold;
   margin-left: 15px;
@@ -373,6 +374,22 @@ form , .timer-view {
 margin-top: 15px;
 }
 
+.create-new-activity-button{
+  background-color: #cbc9cf;
+  color: #2b2733;
+  border-radius: 3px;
+  border: 0px;
+  box-shadow: none;
+  width: 300px;
+  height: 30px;
+  font-size:20px;
+  margin-top: -60%;
+}
+.create-new-activity-button:hover{
+  background-color: #e7ddfa;
+  font-size: 22px;
+  cursor: pointer;
+}
 .hidden {
   display:none;
 }

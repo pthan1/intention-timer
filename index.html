@@ -15,7 +15,8 @@
   <main>
     <section class="left-section">
       <h1 id="left-section-header">New Activity</h1>
-      <span id="formView">
+      <span class="" id="formView"> 
+        <!-- REMOVE ^^ HIDDEN FROM HERE -->
         <form name="activity_form" onSubmit="return validate(event);" />
           <div class="form-align">
             <h2>Select a category:</h2>
@@ -64,6 +65,7 @@
         </form>
       </span>
       <span class="hidden" id="timerView">
+        <!-- ADD HIDDEN HERE WHEN DONE ^^ -->
         <div class="timer-view">
           <p id="activityType">Activity Type</p>
           <span id="countdownTimerText">5:00</span>
@@ -71,12 +73,18 @@
           <button class="hidden log-activity-button">Log Activity</button>
         </div>
       </span>
-
+      <span class="hidden" id="createNewActivityBtnView">
+        <div class="create-new-activity-view">
+          <a href="."><button class="create-new-activity-button">CREATE NEW ACTIVITY</button></a>
+        </div>
+      </span>
     </section>
     <section class="right-section">
       <h1>Past Activities</h1>
-      <div class="no-activities-view hidden">
+      <div class="no-activities-view">
         <h2 id="no-activities-logged">You haven't logged any activites yet. Complete the form to the left to get started!</h2>
+      </div>
+      <div id="past-activities-container">
       </div>
         <!-- <article class="saved-activity-card-view">
           <h2 id="saved-activity-category-text">Study</h2>

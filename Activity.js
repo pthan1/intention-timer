@@ -2,8 +2,8 @@ class Activity{
     constructor(category, description, minutes, seconds){
         this.category = category;
         this.description = description;
-        this.minutes = minutes;
-        this.seconds = seconds;
+        this.minutes = minutes || 0;
+        this.seconds = seconds || 0;
         this.originalTime;
         this.completed = false;
         this.id = `ID${Date.now()}`;
@@ -12,7 +12,7 @@ class Activity{
 
     startTimer(){
         if (!this.running){
-            this.originalTime = [this.minutes , this.seconds]
+          this.originalTime = `${this.minutes} MIN ${this.seconds} SEC`;
         }
         if (this.running){
             return;
@@ -44,7 +44,7 @@ class Activity{
             countdownText.innerText = (`${parsedTime}`);
             console.log(`${minutes}-${seconds}`)
             seconds--;
-            
+
             if (seconds == -1){
                 minutes--;
                 seconds = 59;
@@ -61,17 +61,21 @@ class Activity{
 
     markComplete(){
         this.completed = true;
-
         document.querySelector('.log-activity-button').classList.remove('hidden')
         document.querySelector('.log-activity-button').addEventListener('click', this.saveToStorage);
 
+        
     }
     saveToStorage(){
         var objectToStore = newCard;
         var stringifiedObject = JSON.stringify(objectToStore);
         localStorage.setItem(`activity-${(localStorage.length+1)}`, stringifiedObject);
-        populatePastActivties()
-        document.querySelector('.log-activity-button').classList.add('hidden')
+        noActivitiesLoggedStatement.classList.add('hidden');
+        populatePastActivities();
+        document.querySelector('.log-activity-button').classList.add('hidden');
+        document.querySelector('#timerView').classList.add('hidden');
+        leftSectionHeader.innerText = "Completed Activity";
+        document.querySelector('#createNewActivityBtnView').classList.remove('hidden');
     }
 
 }
