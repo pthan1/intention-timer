@@ -61,10 +61,10 @@ class Activity{
 
     markComplete(){
         this.completed = true;
-
         document.querySelector('.log-activity-button').classList.remove('hidden')
         document.querySelector('.log-activity-button').addEventListener('click', this.saveToStorage);
 
+        
     }
     saveToStorage(){
         var objectToStore = newCard;
