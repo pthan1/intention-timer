@@ -153,6 +153,16 @@ function populatePastActivties(){
 }
 
 function pastActivityHTML(LSObject, position){
+// LSObject.originalTime = [M,S](as integers)
+// to M MIN & S SEC
+
+//LSObject.category = "study"/"meditate"/"exercise"
+// to "Study" / "Meditate" / "Exercise"
+
+    var timeArray = LSObject.originalTime;
+
+    // 5 MIN 2 SEC
+    var formattedTime = LSObject
     return `
     <article id="PastActivityNum${position}" class="saved-activity-card-view">
         <h2 id="saved-activity-category-text">${LSObject.category}</h2>
