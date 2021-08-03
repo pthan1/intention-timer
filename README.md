@@ -1,7 +1,7 @@
 # Intention Timer
 ![preview](https://i.imgur.com/X6GkQET.png)
 #### A simple countdown timer web application
-## Contributers
+## Contributors
 
 [Anna Johnson](https://github.com/annnuuuh)  
 [Phil Than](https://github.com/pthan1)  
