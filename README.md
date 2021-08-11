@@ -15,7 +15,7 @@ HTML - ◘ - CSS - ◘ - JAVASCRIPT
 In this project, we were expected to build a web app 
 that allows a user to set goals for their health and productivity. With the use of a form to collect user input, a new page is rendered providing the view of a custom countdown timer. Users can also keep track of past events that have occurred using local storage. Stylings and format based on an instructor provided a comprehensive preview. [ <+> ](https://frontend.turing.edu/projects/module-1/intention-timer-group.html)
 
-You can demo our app on our [deployed site](https://natesheridan.github.io/intention-timer/), or follow the install instructions below to install the app locally.
+You can demo our app on our [deployed site](https://pthan1.github.io/intention-timer/), or follow the install instructions below to install the app locally.
 
 ## App Use (and screenshots)
 Our web app starts the user off at a home screen where they are asked for 3 items to start the timer - category , description of what the user would like to accomplish during the time, and the length of the timer with a minutes and a seconds input.
